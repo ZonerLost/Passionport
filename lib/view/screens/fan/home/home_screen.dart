@@ -1,11 +1,15 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:passion_port/config/constants/app_fonts.dart';
 import 'package:passion_port/config/constants/app_sizes.dart';
 import 'package:passion_port/view/custom/my_text_widget.dart';
+import 'package:passion_port/view/screens/fan/chat/chat_screen.dart';
 import 'package:passion_port/view/screens/fan/home/story_widget.dart';
+import 'package:passion_port/view/screens/fan/likes/likes_screen.dart';
 import '../../../../config/constants/app_colors.dart';
 import '../../../../generated/assets.dart';
 import '../../../custom/common_image_view_widget.dart';
@@ -24,26 +28,36 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(
         actions: [
-          Badge(
-            smallSize: 9,
-            backgroundColor: kPrimaryColor,
-            child: CommonImageView(
-              imagePath: Assets.imagesLike,
-              height: 24,
+          GestureDetector(
+            onTap: (){
+              Get.to(()=>LikesScreen());
+            },
+            child: Badge(
+              smallSize: 9,
+              backgroundColor: kPrimaryColor,
+              child: CommonImageView(
+                imagePath: Assets.imagesLike,
+                height: 24,
+              ),
             ),
           ),
           SizedBox(width: 15,),
-          Badge(
-            label: MyText(
-              text: "1",
-              color: kQuaternaryColor,
-            ),
-            largeSize: 10,
-            alignment: Alignment.topRight,
-            backgroundColor: kPrimaryColor,
-            child: CommonImageView(
-              imagePath: Assets.imagesMessage,
-              height: 24,
+          GestureDetector(
+            onTap: (){
+              Get.to(()=>ChatScreen());
+            },
+            child: Badge(
+              label: MyText(
+                text: "1",
+                color: kQuaternaryColor,
+              ),
+              largeSize: 10,
+              alignment: Alignment.topRight,
+              backgroundColor: kPrimaryColor,
+              child: CommonImageView(
+                imagePath: Assets.imagesMessage,
+                height: 24,
+              ),
             ),
           ),
           const SizedBox(width: 25),

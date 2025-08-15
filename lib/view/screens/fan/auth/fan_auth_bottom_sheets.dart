@@ -7,6 +7,7 @@ import 'package:passion_port/view/custom/my_button.dart';
 import 'package:passion_port/view/custom/my_text_widget.dart';
 import 'package:passion_port/view/custom/my_textfeild.dart';
 import 'package:passion_port/view/screens/fan/auth/role_widget.dart';
+import 'package:passion_port/view/screens/fan/fan_bottom_nav_bar/fan_bottom_nav_bar.dart';
 import 'package:pinput/pinput.dart';
 import '../../../../config/constants/app_colors.dart';
 import '../../../../generated/assets.dart';
@@ -170,6 +171,7 @@ class LoginBottomSheet extends StatelessWidget {
                 ),
                 SizedBox(height: 25,),
                 MyButton(onTap: (){
+                  Get.to(()=>FanBottomNavBar());
                 }, buttonText: "Login"),
                 SizedBox(height: 40,),
                 Row(

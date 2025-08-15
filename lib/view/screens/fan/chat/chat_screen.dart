@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../config/constants/app_colors.dart';
 import '../../../../config/constants/app_sizes.dart';
@@ -7,6 +9,7 @@ import '../../../../main.dart';
 import '../../../custom/common_image_view_widget.dart';
 import '../../../custom/custom_appbar.dart';
 import '../../../custom/my_text_widget.dart';
+import 'message_screen.dart';
 
 
 class ChatScreen extends StatelessWidget {
@@ -35,10 +38,11 @@ class ChatScreen extends StatelessWidget {
             itemBuilder: (context, index) {
               return ListTile(
                 onTap: (){
-
+                  Get.to(()=>ChatUiScreen());
                 },
                 contentPadding: EdgeInsets.zero,
                 minVerticalPadding: 0,
+                visualDensity: VisualDensity.compact,
                 leading: CommonImageView(
                   height: 50,
                   width: 50,

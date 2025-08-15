@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:passion_port/config/constants/app_sizes.dart';
 import 'package:passion_port/main.dart';
 import 'package:passion_port/view/custom/common_image_view_widget.dart';
 import 'package:passion_port/view/custom/my_text_widget.dart';
+import 'package:passion_port/view/screens/fan/likes/likes_detail_screen.dart';
 import 'package:svg_flutter/svg.dart';
 
 import '../../../../config/constants/app_colors.dart';
@@ -36,10 +39,11 @@ class LikesScreen extends StatelessWidget {
             itemBuilder: (context, index) {
              return ListTile(
                onTap: (){
-
+                 Get.to(()=>LikesDetailScreen());
                },
               contentPadding: EdgeInsets.zero,
               minVerticalPadding: 0,
+                visualDensity: VisualDensity.compact,
               leading: CommonImageView(
                 height: 50,
                 width: 50,

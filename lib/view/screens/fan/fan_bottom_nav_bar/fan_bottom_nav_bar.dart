@@ -8,6 +8,7 @@ import '../../../../generated/assets.dart';
 import '../../../custom/my_text_widget.dart';
 import '../../home/event_screen.dart';
 import '../../home/live_coaching_screen.dart';
+import '../chat/chat_screen.dart';
 import '../home/home_screen.dart';
 import '../likes/likes_detail_screen.dart';
 import '../likes/likes_screen.dart';
@@ -41,11 +42,11 @@ class _FanBottomNavBarState extends State<FanBottomNavBar> {
   }
 
   final List<Widget> screens = const [
-    LikesDetailScreen(),
-    LikesScreen(),
     HomeScreen(),
-    LiveCoachingScreen(),
-    EventScreen(),
+    HomeScreen(),
+    HomeScreen(),
+    HomeScreen(),
+    HomeScreen(),
   ];
 
   @override
