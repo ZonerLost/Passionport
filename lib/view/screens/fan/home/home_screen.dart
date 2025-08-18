@@ -246,7 +246,7 @@ class MyCarousel extends StatelessWidget {
           items: images.map((path) {
             return CommonImageView(
               imagePath: path,
-              //radius: 15,
+              radius: 15,
               width: double.infinity,
             );
           }).toList(),

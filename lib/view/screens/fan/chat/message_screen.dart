@@ -48,9 +48,12 @@ class _ChatUiuser_moduletate extends State<ChatUiScreen> {
     return Scaffold(
       appBar: CustomAppBar2(
         actions: [
-
           CommonImageView(
-            svgPath: Assets.svgMore,
+            svgPath: Assets.svgCall,
+          ),
+          SizedBox(width: 15,),
+          CommonImageView(
+            svgPath: Assets.svgVideo,
           ),
           SizedBox(width: 15,),
         ],
@@ -85,31 +88,6 @@ class _ChatUiuser_moduletate extends State<ChatUiScreen> {
       ),
       body: Column(
         children: [
-          Container(
-            width: double.infinity,
-            height: 70,
-            decoration: BoxDecoration(
-              color: Colors.white.withValues(alpha: 0.05),
-              boxShadow: [
-                BoxShadow(
-                  color: Color(0x3F000000),
-                  blurRadius: 15,
-                  offset: Offset(0, 8),
-                  spreadRadius: 0,
-                ),
-              ],
-            ),
-            child: Padding(
-              padding: AppSizes.HORIZONTAL,
-              child: Row(
-                children: [
-                  CommonImageView(imagePath: "Assets.imagesChatppf", height: 50),
-
-
-                ],
-              ),
-            ),
-          ),
           Expanded(
             child: ListView.builder(
               padding: EdgeInsets.all(8),
@@ -134,7 +112,7 @@ class _ChatUiuser_moduletate extends State<ChatUiScreen> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
               decoration: ShapeDecoration(
-                color: kPurpleColor,
+                //color: kPurpleColor,
                 shape: RoundedRectangleBorder(
                   side: BorderSide(
                     width: 1,
@@ -144,8 +122,6 @@ class _ChatUiuser_moduletate extends State<ChatUiScreen> {
               ),
               child: Row(
                 children: [
-                  CommonImageView(svgPath: "Assets.svgAttachment"),
-                  SizedBox(width: 10),
                   Expanded(
                     child: Container(
                       padding: EdgeInsets.symmetric(horizontal: 2),
@@ -157,21 +133,13 @@ class _ChatUiuser_moduletate extends State<ChatUiScreen> {
                         controller: messageController,
                         hint: "Write message here",
                         marginBottom: 0,
-                        suffix: Padding(
-                          padding: const EdgeInsets.all(12),
-                          child: CommonImageView(svgPath: "Assets.svgMicrophone"),
-                        ),
-                        prefix: Padding(
-                          padding: const EdgeInsets.all(12),
-                          child: CommonImageView(svgPath: "Assets.svgEmojiHappy"),
-                        ),
                       ),
                     ),
                   ),
                   IconButton(
                     icon: CommonImageView(
-                      imagePath: "Assets.imagesSendmsg",
-                      height: 42,
+                      imagePath: Assets.imagesAt,
+                      height: 40,
                     ),
                     onPressed: sendMessage,
                   ),
@@ -184,59 +152,75 @@ class _ChatUiuser_moduletate extends State<ChatUiScreen> {
     );
   }
 }
-
 class ChatBubble extends StatelessWidget {
   final String message;
   final bool isMe;
 
-  const ChatBubble({super.key, required this.message, required this.isMe});
+  const ChatBubble({
+    super.key,
+    required this.message,
+    required this.isMe,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Align(
       alignment: isMe ? Alignment.centerRight : Alignment.centerLeft,
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-        padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 14),
-        decoration: BoxDecoration(
-          color: isMe ? kTertiaryColor : kTertiaryColor,
-          borderRadius: BorderRadius.only(
-            topLeft: const Radius.circular(12),
-            topRight: const Radius.circular(12),
-            bottomLeft: isMe ? const Radius.circular(12) : Radius.zero,
-            bottomRight: isMe ? Radius.zero : const Radius.circular(12),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min, // prevents taking full width
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: isMe
+            ? [
+          Flexible(
+            child: _buildBubble(),
           ),
-          border:
-          isMe
-              ? null
-              : Border.all(
-            color: Colors.white.withOpacity(0.1), // customize as needed
-            width: 1,
+          const SizedBox(width: 8),
+          CommonImageView(
+            imagePath: Assets.imagesProfile,
+            height: 24,
           ),
+        ]
+            : [
+          // Profile first (left side)
+          CommonImageView(
+            imagePath: Assets.imagesProfile,
+            height: 24,
+          ),
+          const SizedBox(width: 8),
+          Flexible(
+            child: _buildBubble(),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildBubble() {
+    return Container(
+      margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 0),
+      padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 18),
+      decoration: BoxDecoration(
+        color: isMe ? kCBGColor : kPrimaryColor,
+        borderRadius: BorderRadius.circular(25),
+        border: isMe
+            ? null
+            : Border.all(
+          color: Colors.white.withOpacity(0.1),
+          width: 1,
         ),
-        child: Column(
-          crossAxisAlignment:
-          isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
-          children: [
-            MyText(
-              text: message,
-              size: 14,
-              weight: FontWeight.w400,
-              color: isMe ? kQuaternaryColor : kQuaternaryColor,
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                MyText(
-                  text: DateFormat.Hm().format(DateTime.now()),
-                  size: 10,
-                  weight: FontWeight.w400,
-                  color: isMe ? kQuaternaryColor : kQuaternaryColor,
-                ),
-              ],
-            ),
-          ],
-        ),
+      ),
+      child: Column(
+        crossAxisAlignment:
+        isMe ? CrossAxisAlignment.end : CrossAxisAlignment.start,
+        children: [
+          MyText(
+            text: message,
+            size: 14,
+            weight: FontWeight.w400,
+            color: isMe ? kBlack2Color : kQuaternaryColor,
+          ),
+        ],
       ),
     );
   }

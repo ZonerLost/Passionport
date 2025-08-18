@@ -12,6 +12,7 @@ import '../chat/chat_screen.dart';
 import '../home/home_screen.dart';
 import '../likes/likes_detail_screen.dart';
 import '../likes/likes_screen.dart';
+import '../profile/profile_screen.dart';
 
 class FanBottomNavBar extends StatefulWidget {
   const FanBottomNavBar({super.key});
@@ -41,12 +42,12 @@ class _FanBottomNavBarState extends State<FanBottomNavBar> {
     ];
   }
 
-  final List<Widget> screens = const [
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
-    HomeScreen(),
+  final List<Widget> screens = [
+    const HomeScreen(),
+    const HomeScreen(),
+    const HomeScreen(),
+    const HomeScreen(),
+    ProfileScreen(),
   ];
 
   @override

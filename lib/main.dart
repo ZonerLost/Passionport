@@ -2,7 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
+import 'package:passion_port/view/screens/fan/chat/message_screen.dart';
 import 'package:passion_port/view/screens/fan/fan_bottom_nav_bar/fan_bottom_nav_bar.dart';
+import 'package:passion_port/view/screens/fan/profile/account_settings_screen.dart';
+import 'package:passion_port/view/screens/fan/profile/add_payment_details_screen.dart';
+import 'package:passion_port/view/screens/fan/profile/edit_profile_screen.dart';
+import 'package:passion_port/view/screens/fan/profile/general_setting_screen.dart';
+import 'package:passion_port/view/screens/fan/profile/linked_account_screen.dart';
+import 'package:passion_port/view/screens/fan/profile/login_account_screen.dart';
+import 'package:passion_port/view/screens/fan/profile/notification_screen.dart';
+import 'package:passion_port/view/screens/fan/profile/payment_method_screen.dart';
+import 'package:passion_port/view/screens/fan/profile/profile_screen.dart';
+import 'package:passion_port/view/screens/fan/profile/setting_screen.dart';
 import 'package:passion_port/view/splash_service/splash_screen.dart';
 
 import 'config/constants/app_fonts.dart';
@@ -41,7 +52,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: AppBarTheme(backgroundColor: Colors.white),
       ),
-      home: FanBottomNavBar(),
+      home: SplashScreen(),
       defaultTransition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 500),
     );

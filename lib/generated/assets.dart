@@ -2,6 +2,7 @@
 class Assets {
   Assets._();
 
+  static const String imagesAt = 'assets/images/At.png';
   static const String imagesBackButton = 'assets/images/backButton.png';
   static const String imagesBg = 'assets/images/bg.png';
   static const String imagesFeed = 'assets/images/feed.png';
@@ -9,22 +10,44 @@ class Assets {
   static const String imagesLike = 'assets/images/Like.png';
   static const String imagesMessage = 'assets/images/Message.png';
   static const String imagesMore = 'assets/images/more.png';
+  static const String imagesP1 = 'assets/images/p1.png';
+  static const String imagesP2 = 'assets/images/p2.png';
+  static const String imagesP3 = 'assets/images/p3.png';
+  static const String imagesP4 = 'assets/images/p4.png';
+  static const String imagesP5 = 'assets/images/p5.png';
+  static const String imagesP6 = 'assets/images/p6.png';
+  static const String imagesP7 = 'assets/images/p7.png';
+  static const String imagesP8 = 'assets/images/p8.png';
+  static const String imagesP9 = 'assets/images/p9.png';
   static const String imagesPost = 'assets/images/Post.png';
   static const String imagesProfile = 'assets/images/profile.png';
   static const String imagesProfile2 = 'assets/images/profile2.png';
   static const String imagesSearch = 'assets/images/Search.png';
   static const String imagesShop = 'assets/images/Shop.png';
   static const String svgApple = 'assets/svg/apple.svg';
+  static const String svgArrowDown = 'assets/svg/arrow-down.svg';
+  static const String svgArrowRight = 'assets/svg/arrow-right.svg';
+  static const String svgCall = 'assets/svg/call.svg';
   static const String svgComment = 'assets/svg/comment.svg';
   static const String svgDialogLogo = 'assets/svg/dialogLogo.svg';
   static const String svgFacebook = 'assets/svg/facebook.svg';
+  static const String svgG1 = 'assets/svg/g1.svg';
   static const String svgGoogle = 'assets/svg/google.svg';
+  static const String svgGooglePay = 'assets/svg/GooglePay.svg';
   static const String svgHeart = 'assets/svg/heart.svg';
   static const String svgHide = 'assets/svg/hide.svg';
   static const String svgLogo = 'assets/svg/logo.svg';
   static const String svgLogo2 = 'assets/svg/logo2.svg';
+  static const String svgLogout = 'assets/svg/logout.svg';
+  static const String svgMastercard = 'assets/svg/Mastercard.svg';
   static const String svgMore = 'assets/svg/more.svg';
+  static const String svgP1 = 'assets/svg/p1.svg';
+  static const String svgPayPal = 'assets/svg/PayPal.svg';
+  static const String svgProfileDelete = 'assets/svg/profile-delete.svg';
   static const String svgShare = 'assets/svg/share.svg';
   static const String svgShow = 'assets/svg/show.svg';
+  static const String svgStripe = 'assets/svg/stripe.svg';
+  static const String svgVideo = 'assets/svg/video.svg';
+  static const String svgVisa = 'assets/svg/visa.svg';
 
 }

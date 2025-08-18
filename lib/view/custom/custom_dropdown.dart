@@ -154,6 +154,7 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 import '../../config/constants/app_colors.dart';
 import '../../config/constants/app_fonts.dart';
+import '../../generated/assets.dart';
 import 'common_image_view_widget.dart';
 import 'custom_animated_row.dart';
 import 'my_text_widget.dart';
@@ -204,7 +205,7 @@ class CustomDropDown extends StatelessWidget {
                   )
                 ],
                 child: MyText(
-                  paddingBottom: 10,
+                  paddingBottom: 8,
                   text: labelText!.tr,  
                   size: 16,
                   fontFamily: AppFonts.poppins,
@@ -228,7 +229,7 @@ class CustomDropDown extends StatelessWidget {
                           child: MyText(
                               text: item.tr, 
                               size: 14,
-                              color: kPrimaryColor,
+                              color: kBlack2Color,
                               weight: FontWeight.w600,
                               fontFamily: AppFonts.poppins),
                         ),
@@ -256,7 +257,7 @@ class CustomDropDown extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(horizontal: 6),
                     height: 48,
                     decoration: BoxDecoration(
-                      color: kPrimaryColor,
+                      color: kCBGColor,
                       border: Border.all(
                         color: kPrimaryColor,
                       ),
@@ -272,7 +273,7 @@ class CustomDropDown extends StatelessWidget {
                             weight: FontWeight.w600,
                             fontFamily: AppFonts.poppins),
                         CommonImageView(
-                          imagePath: "Assets.imagesArrowDown",
+                          svgPath: Assets.svgArrowDown,
                           height: 16,
                         )
                       ],
@@ -286,9 +287,9 @@ class CustomDropDown extends StatelessWidget {
                     maxHeight: 300,
                     offset: const Offset(0, -5),
                     decoration: BoxDecoration(
-                        border: Border.all(color: kPrimaryColor),
+                        border: Border.all(color: kCBGColor),
                         borderRadius: BorderRadius.circular(10),
-                        color: kPrimaryColor),
+                        color: kCBGColor),
                   ),
                 ),
               ),
