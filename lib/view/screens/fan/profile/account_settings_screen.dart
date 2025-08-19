@@ -5,6 +5,7 @@ import 'package:passion_port/view/custom/custom_appbar.dart';
 import 'package:passion_port/view/custom/my_button.dart';
 import 'package:passion_port/view/custom/my_text_widget.dart';
 import 'package:passion_port/view/custom/my_textfeild.dart';
+import 'package:passion_port/view/screens/fan/profile/profiledialog/ProfileDialog.dart';
 
 import '../../../../config/constants/app_colors.dart';
 import '../../../../generated/assets.dart';
@@ -35,11 +36,16 @@ class AccountSettingsScreen extends StatelessWidget {
             SizedBox(height: 10,),
             buildInputField(label: "Current Password", hint: "123qwe456",),
             SizedBox(height: 5,),
-            MyText(
-              text: "Change Password",
-              size: 12,
-              weight: FontWeight.w600,
-              color: kPrimaryColor,
+            GestureDetector(
+              onTap: (){
+                ProfileDialog.showAuthDialog();
+              },
+              child: MyText(
+                text: "Change Password",
+                size: 12,
+                weight: FontWeight.w600,
+                color: kPrimaryColor,
+              ),
             ),
 
           ],

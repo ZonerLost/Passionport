@@ -14,6 +14,12 @@ import 'package:passion_port/view/screens/fan/profile/notification_screen.dart';
 import 'package:passion_port/view/screens/fan/profile/payment_method_screen.dart';
 import 'package:passion_port/view/screens/fan/profile/profile_screen.dart';
 import 'package:passion_port/view/screens/fan/profile/setting_screen.dart';
+import 'package:passion_port/view/screens/fan/shop/shop_cart_screen.dart';
+import 'package:passion_port/view/screens/fan/shop/shop_payment_screen.dart';
+import 'package:passion_port/view/screens/fan/shop/shop_product_detail_screen.dart';
+import 'package:passion_port/view/screens/fan/shop/shop_product_screen.dart';
+import 'package:passion_port/view/screens/fan/shop/shop_profile_screen.dart';
+import 'package:passion_port/view/screens/fan/shop/shop_screen.dart';
 import 'package:passion_port/view/splash_service/splash_screen.dart';
 
 import 'config/constants/app_fonts.dart';

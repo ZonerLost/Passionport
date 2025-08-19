@@ -73,12 +73,14 @@ class LikesDetailScreen extends StatelessWidget {
             const SizedBox(height: 8),
             ListView.builder(
               shrinkWrap: true,
+              padding: EdgeInsets.zero,
               physics: NeverScrollableScrollPhysics(),
               itemCount: 3,
               itemBuilder: (context, index) {
               return Padding(
                 padding: const EdgeInsets.only(bottom: 6),
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     if(index != 0)
                     CommonImageView(

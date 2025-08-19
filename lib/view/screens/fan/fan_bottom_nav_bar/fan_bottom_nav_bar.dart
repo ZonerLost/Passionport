@@ -6,13 +6,12 @@ import '../../../../config/constants/app_colors.dart';
 import '../../../../config/constants/app_fonts.dart';
 import '../../../../generated/assets.dart';
 import '../../../custom/my_text_widget.dart';
-import '../../home/event_screen.dart';
-import '../../home/live_coaching_screen.dart';
 import '../chat/chat_screen.dart';
 import '../home/home_screen.dart';
 import '../likes/likes_detail_screen.dart';
 import '../likes/likes_screen.dart';
 import '../profile/profile_screen.dart';
+import '../shop/shop_screen.dart';
 
 class FanBottomNavBar extends StatefulWidget {
   const FanBottomNavBar({super.key});
@@ -46,7 +45,7 @@ class _FanBottomNavBarState extends State<FanBottomNavBar> {
     const HomeScreen(),
     const HomeScreen(),
     const HomeScreen(),
-    const HomeScreen(),
+    ShopScreen(),
     ProfileScreen(),
   ];
 

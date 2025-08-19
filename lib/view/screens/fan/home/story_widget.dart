@@ -5,18 +5,21 @@ import '../../../../config/constants/app_colors.dart';
 import '../../../../main.dart';
 
 class StoriesWidget extends StatelessWidget {
-  const StoriesWidget({Key? key}) : super(key: key);
+  final bool addStory;
+  const StoriesWidget({Key? key, this.addStory = true}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 90,
+      height: 85,
       child: ListView(
         scrollDirection: Axis.horizontal,
         padding: AppSizes.HORIZONTAL,
         children: [
           // Add story button
+          if(addStory)
           _buildAddStoryItem(),
+          if(addStory)
           const SizedBox(width: 8),
           _buildStoryItem(
             dummyImage2,

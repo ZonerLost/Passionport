@@ -22,6 +22,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return Animate(
       effects: [FadeEffect(duration: Duration(milliseconds: 500))],
       child: AppBar(
+        automaticallyImplyLeading: false,
         centerTitle: false,
         title: CommonImageView(
           svgPath: Assets.svgLogo2,
@@ -58,6 +59,7 @@ class CustomAppBar2 extends StatelessWidget implements PreferredSizeWidget {
         effects: [FadeEffect(duration: Duration(milliseconds: 500))],
         child: AppBar(
           centerTitle: false,
+          automaticallyImplyLeading: false,
           titleSpacing: 0,
           leading: InkWell(
             onTap: onBackTap ?? () => Get.back(),

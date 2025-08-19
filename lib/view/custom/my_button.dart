@@ -99,7 +99,7 @@ class MyButton extends StatelessWidget {
                   size: fontSize,
                   letterSpacing: 0.5,
                   color: fontColor ?? kQuaternaryColor,
-                  weight: weight ?? FontWeight.w500,
+                  weight: weight ?? FontWeight.w600,
                 ),
               ],
             ),
