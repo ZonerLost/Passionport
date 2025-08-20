@@ -133,7 +133,7 @@ class _MyTextFieldState extends State<MyTextField> {
                 ),
                 decoration: InputDecoration(
                   filled: true,
-                  fillColor: kCBGColor,
+                  fillColor: widget.filledColor ?? kCBGColor,
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                         color:kPrimaryColor,

@@ -45,6 +45,7 @@ dependencies:
   bounce:
   dropdown_button2:
   carousel_slider: ^5.1.1
+  flutter_staggered_grid_view:
 
 dev_dependencies:
   flutter_test:

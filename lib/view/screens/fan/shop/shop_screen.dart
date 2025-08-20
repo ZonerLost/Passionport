@@ -15,6 +15,7 @@ import '../../../../generated/assets.dart';
 import '../../../custom/common_image_view_widget.dart';
 import '../../../custom/custom_appbar.dart';
 import '../../../custom/my_text_widget.dart';
+import '../home/comment_bottomsheet.dart';
 import '../home/story_widget.dart';
 
 class ShopScreen extends StatelessWidget {
@@ -76,11 +77,18 @@ class ShopScreen extends StatelessWidget {
                         onTap: () => selectedIndex.value = index,
                         child: Container(
                           margin: const EdgeInsets.symmetric(horizontal: 6),
-                          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 10,
+                            vertical: 0,
+                          ),
                           decoration: ShapeDecoration(
-                            color: isSelected ? kPrimaryColor : kPrimaryLightColor,
+                            color:
+                                isSelected ? kPrimaryColor : kPrimaryLightColor,
                             shape: RoundedRectangleBorder(
-                              side: const BorderSide(width: 1, color:kPrimaryColor),
+                              side: const BorderSide(
+                                width: 1,
+                                color: kPrimaryColor,
+                              ),
                               borderRadius: BorderRadius.circular(10),
                             ),
                           ),
@@ -90,7 +98,10 @@ class ShopScreen extends StatelessWidget {
                               style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w500,
-                                color: isSelected ? kQuaternaryColor : kPrimaryColor,
+                                color:
+                                    isSelected
+                                        ? kQuaternaryColor
+                                        : kPrimaryColor,
                               ),
                             ),
                           ),
@@ -128,8 +139,8 @@ class ShopScreen extends StatelessWidget {
                                         MainAxisAlignment.spaceBetween,
                                     children: [
                                       GestureDetector(
-                                        onTap:(){
-                                          Get.to(()=>ShopProfileScreen());
+                                        onTap: () {
+                                          Get.to(() => ShopProfileScreen());
                                         },
                                         child: Container(
                                           padding: const EdgeInsets.symmetric(
@@ -139,9 +150,8 @@ class ShopScreen extends StatelessWidget {
                                           decoration: ShapeDecoration(
                                             color: kQuaternaryColor,
                                             shape: RoundedRectangleBorder(
-                                              borderRadius: BorderRadius.circular(
-                                                10,
-                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10),
                                             ),
                                           ),
                                           child: Row(
@@ -172,8 +182,8 @@ class ShopScreen extends StatelessWidget {
                                 right: 10,
                                 bottom: 10,
                                 child: GestureDetector(
-                                  onTap: (){
-                                    Get.to(()=>ShopProductScreen());
+                                  onTap: () {
+                                    Get.to(() => ShopProductScreen());
                                   },
                                   child: CommonImageView(
                                     imagePath: Assets.imagesShop1,
@@ -191,7 +201,18 @@ class ShopScreen extends StatelessWidget {
                             spacing: 15,
                             children: [
                               CommonImageView(svgPath: Assets.svgHeart),
-                              CommonImageView(svgPath: Assets.svgComment),
+                              GestureDetector(
+                                onTap: () {
+                                  Get.bottomSheet(
+                                    const CommentBottomSheet(),
+                                    isScrollControlled: true,
+                                    isDismissible: true,
+                                  );
+                                },
+                                child: CommonImageView(
+                                  svgPath: Assets.svgComment,
+                                ),
+                              ),
                               CommonImageView(svgPath: Assets.svgShare),
                             ],
                           ),

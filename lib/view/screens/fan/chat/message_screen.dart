@@ -112,7 +112,7 @@ class _ChatUiuser_moduletate extends State<ChatUiScreen> {
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
               decoration: ShapeDecoration(
-                //color: kPurpleColor,
+                color: kCBGColor,
                 shape: RoundedRectangleBorder(
                   side: BorderSide(
                     width: 1,
@@ -123,26 +123,21 @@ class _ChatUiuser_moduletate extends State<ChatUiScreen> {
               child: Row(
                 children: [
                   Expanded(
-                    child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 2),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(6),
-                        //color: kPrimaryColor
-                      ),
-                      child: MyTextField(
-                        controller: messageController,
-                        hint: "Write message here",
-                        marginBottom: 0,
-                      ),
+                    child: MyTextField(
+                      controller: messageController,
+                      hint: "Enter your message.......",
+                      marginBottom: 0,
+                      filledColor: Colors.transparent,
                     ),
                   ),
-                  IconButton(
-                    icon: CommonImageView(
-                      imagePath: Assets.imagesAt,
-                      height: 40,
+                  SizedBox(width: 10,),
+                  GestureDetector(
+                    onTap: sendMessage,
+                    child: CommonImageView(
+                      imagePath: Assets.imagesSendMessage,
+                      height: 42,
                     ),
-                    onPressed: sendMessage,
-                  ),
+                  )
                 ],
               ),
             ),

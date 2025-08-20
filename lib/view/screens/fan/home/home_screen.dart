@@ -17,6 +17,8 @@ import '../../../custom/custom_appbar.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:carousel_slider/carousel_controller.dart';
 
+import 'comment_bottomsheet.dart';
+
 
 
 
@@ -146,7 +148,15 @@ class HomeScreen extends StatelessWidget {
                             spacing: 15,
                             children: [
                               CommonImageView(svgPath: Assets.svgHeart),
-                              CommonImageView(svgPath: Assets.svgComment),
+                              GestureDetector(
+                                onTap:(){
+                                  Get.bottomSheet(
+                                    const CommentBottomSheet(),
+                                    isScrollControlled: true,
+                                    isDismissible: true,
+                                  );
+                    },
+                                  child: CommonImageView(svgPath: Assets.svgComment)),
                               CommonImageView(svgPath: Assets.svgShare),
                             ],
                           ),

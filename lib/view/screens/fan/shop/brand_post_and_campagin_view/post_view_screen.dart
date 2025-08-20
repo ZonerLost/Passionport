@@ -1,22 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:passion_port/config/constants/app_sizes.dart';
 
-import '../../../../config/constants/app_colors.dart';
-import '../../../../config/constants/app_fonts.dart';
-import '../../../../generated/assets.dart';
-import '../../../../main.dart';
-import '../../../custom/common_image_view_widget.dart';
-import '../../../custom/custom_appbar.dart';
-import '../../../custom/my_text_widget.dart';
-import '../home/comment_bottomsheet.dart';
-import '../home/home_screen.dart';
+import '../../../../../config/constants/app_colors.dart';
+import '../../../../../config/constants/app_fonts.dart';
+import '../../../../../generated/assets.dart';
+import '../../../../../main.dart';
+import '../../../../custom/common_image_view_widget.dart';
+import '../../../../custom/custom_appbar.dart';
+import '../../../../custom/my_text_widget.dart';
+import '../../home/home_screen.dart';
 
 
-
-class LikesDetailScreen extends StatelessWidget {
-  const LikesDetailScreen({super.key});
+class PostViewScreen extends StatelessWidget {
+  const PostViewScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +30,7 @@ class LikesDetailScreen extends StatelessWidget {
             CommonImageView(
               height: 30,
               width: 30,
-              url: dummyImage1,
+              imagePath: Assets.imagesNike,
               radius: 25,
             ),
             SizedBox(width: 10,),
@@ -42,13 +38,13 @@ class LikesDetailScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 MyText(
-                  text: "User_name",
+                  text: "Nike",
                   size: 13,
                   weight: FontWeight.w500,
                 ),
                 SizedBox(height: 5,),
                 MyText(
-                  text: "Nike",
+                  text: "Post",
                   size: 12,
                   weight: FontWeight.w400,
                   color: kGreyTxColor,
@@ -68,16 +64,8 @@ class LikesDetailScreen extends StatelessWidget {
             Row(
               spacing: 15,
               children: [
-                CommonImageView(svgPath: Assets.svgHeart),
-                GestureDetector(
-                    onTap:(){
-                      Get.bottomSheet(
-                        const CommentBottomSheet(),
-                        isScrollControlled: true,
-                        isDismissible: true,
-                      );
-                    },
-                    child: CommonImageView(svgPath: Assets.svgComment)),
+                CommonImageView(svgPath: Assets.svgLikeheart),
+                CommonImageView(svgPath: Assets.svgComment),
                 CommonImageView(svgPath: Assets.svgShare),
               ],
             ),
@@ -88,50 +76,51 @@ class LikesDetailScreen extends StatelessWidget {
               physics: NeverScrollableScrollPhysics(),
               itemCount: 3,
               itemBuilder: (context, index) {
-              return Padding(
-                padding: const EdgeInsets.only(bottom: 6),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    if(index != 0)
-                    CommonImageView(
-                      url: dummyImage1,
-                      height: 25,
-                      width: 25,
-                      radius: 25,
-                    ),
-                    if(index != 0)
-                    SizedBox(width: 8,),
-                    Text.rich(
-                      TextSpan(
-                        children: [
-                          TextSpan(
-                            text: 'User_name ',
-                            style: TextStyle(
-                              color: kBlack2Color,
-                              fontSize: 14,
-                              fontFamily: AppFonts.poppins,
-                              fontWeight: FontWeight.w500,
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 6),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      if(index != 0)
+                        CommonImageView(
+                          url: dummyImage1,
+                          height: 25,
+                          width: 25,
+                          radius: 25,
+                        ),
+                      if(index != 0)
+                        SizedBox(width: 8,),
+                      Text.rich(
+                        TextSpan(
+                          children: [
+                            TextSpan(
+                              text: 'User_name ',
+                              style: TextStyle(
+                                color: kBlack2Color,
+                                fontSize: 14,
+                                fontFamily: AppFonts.poppins,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                          ),
-                          TextSpan(
-                            text: 'Best one there is 🔥',
-                            style: TextStyle(
-                              color: kBlack2Color,
-                              fontSize: 13,
-                              fontFamily: AppFonts.poppins,
-                              fontWeight: FontWeight.w400,
+                            TextSpan(
+                              text: 'Best one there is 🔥',
+                              style: TextStyle(
+                                color: kBlack2Color,
+                                fontSize: 13,
+                                fontFamily: AppFonts.poppins,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
-                ),
-              );
-            },
+                    ],
+                  ),
+                );
+              },
             ),
             Row(
+              //crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 CommonImageView(
                   imagePath: Assets.imagesProfile,

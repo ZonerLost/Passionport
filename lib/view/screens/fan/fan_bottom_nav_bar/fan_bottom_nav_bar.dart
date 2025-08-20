@@ -10,7 +10,9 @@ import '../chat/chat_screen.dart';
 import '../home/home_screen.dart';
 import '../likes/likes_detail_screen.dart';
 import '../likes/likes_screen.dart';
+import '../post/create_post_screen.dart';
 import '../profile/profile_screen.dart';
+import '../search/search_screen.dart';
 import '../shop/shop_screen.dart';
 
 class FanBottomNavBar extends StatefulWidget {
@@ -42,9 +44,9 @@ class _FanBottomNavBarState extends State<FanBottomNavBar> {
   }
 
   final List<Widget> screens = [
-    const HomeScreen(),
-    const HomeScreen(),
-    const HomeScreen(),
+    HomeScreen(),
+    SearchScreen(),
+    CreatePostScreen(),
     ShopScreen(),
     ProfileScreen(),
   ];

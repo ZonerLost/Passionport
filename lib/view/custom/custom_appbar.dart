@@ -41,7 +41,8 @@ class CustomAppBar2 extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
   final List<Widget>? actions;
   final VoidCallback? onBackTap;
-  final Widget? child; // 👈 Added child property
+  final Widget? child;
+  final showBackButton;// 👈 Added child property
 
   const CustomAppBar2({
     Key? key,
@@ -49,6 +50,7 @@ class CustomAppBar2 extends StatelessWidget implements PreferredSizeWidget {
     this.actions,
     this.onBackTap,
     this.child,
+    this.showBackButton = true,
   }) : super(key: key);
 
   @override
@@ -61,7 +63,8 @@ class CustomAppBar2 extends StatelessWidget implements PreferredSizeWidget {
           centerTitle: false,
           automaticallyImplyLeading: false,
           titleSpacing: 0,
-          leading: InkWell(
+
+          leading: showBackButton ? InkWell(
             onTap: onBackTap ?? () => Get.back(),
             child: Padding(
               padding: const EdgeInsets.all(14),
@@ -69,7 +72,7 @@ class CustomAppBar2 extends StatelessWidget implements PreferredSizeWidget {
                 imagePath: Assets.imagesBackButton,
               ),
             ),
-          ),
+          ) : null,
           title: title != null
               ? MyText(
             text: title!,
