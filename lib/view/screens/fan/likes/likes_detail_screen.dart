@@ -44,9 +44,9 @@ class LikesDetailScreen extends StatelessWidget {
                 MyText(
                   text: "User_name",
                   size: 13,
-                  weight: FontWeight.w500,
+                  weight: FontWeight.w600,
                 ),
-                SizedBox(height: 5,),
+                SizedBox(height: 2,),
                 MyText(
                   text: "Nike",
                   size: 12,
@@ -111,7 +111,7 @@ class LikesDetailScreen extends StatelessWidget {
                               color: kBlack2Color,
                               fontSize: 14,
                               fontFamily: AppFonts.poppins,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                           TextSpan(

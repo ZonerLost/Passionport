@@ -46,6 +46,7 @@ dependencies:
   dropdown_button2:
   carousel_slider: ^5.1.1
   flutter_staggered_grid_view:
+  fl_chart: ^1.0.0
 
 dev_dependencies:
   flutter_test:

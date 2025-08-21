@@ -10,8 +10,10 @@ import 'package:passion_port/view/screens/fan/auth/role_widget.dart';
 import 'package:passion_port/view/screens/fan/fan_bottom_nav_bar/fan_bottom_nav_bar.dart';
 import 'package:pinput/pinput.dart';
 import '../../../../config/constants/app_colors.dart';
+import '../../../../controller/select_role_controller/select_role_controller.dart';
 import '../../../../generated/assets.dart';
 import '../../../custom/custom_animated_row.dart';
+import '../../brand/auth/brand_auth_bottom_sheets.dart';
 import 'auth_dialog.dart';
 
 
@@ -20,7 +22,7 @@ class SelectRoleBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    RxString selectedRole = "fan".obs;
+    final SelectRoleController roleController = Get.find<SelectRoleController>();
     return  SingleChildScrollView(
       child: SafeArea(
         child: Container(
@@ -55,30 +57,44 @@ class SelectRoleBottomSheet extends StatelessWidget {
                 SizedBox(height: 30,),
                 Obx(() => RadioOption(
                   value: "fan",
-                  groupValue: selectedRole.value,
-                  onChanged: (val) => selectedRole.value = val,
+                  groupValue: roleController.selectedRole.value,
+                  onChanged: (val) => roleController.selectedRole.value = val,
                   title: "Fan",
                   subtitle: "Users who can buy from brands and campaigns to support them through social means",
                 )),
                 const SizedBox(height: 15),
                 Obx(() => RadioOption(
                   value: "brand",
-                  groupValue: selectedRole.value,
-                  onChanged: (val) => selectedRole.value = val,
+                  groupValue: roleController.selectedRole.value,
+                  onChanged: (val) => roleController.selectedRole.value = val,
                   title: "Brand",
                   subtitle: "Users who can sell through app and engage fans through campaigns",
                 )),
                 SizedBox(height: 30,),
                 MyButton(
-                    onTap: (){
-                      Get.back();
+                  onTap: () {
+                    Get.back();
+                    if (roleController.selectedRole.value == "fan") {
+                      // Go to Fan Login
                       Get.bottomSheet(
-                          const LoginBottomSheet(),
-                          isScrollControlled: true,
-                          isDismissible: false,
-                          enableDrag: false
+                        const LoginBottomSheet(), // Replace with your Fan Login Bottom Sheet
+                        isScrollControlled: true,
+                        isDismissible: false,
+                        enableDrag: false,
                       );
-                    }, buttonText: "Next"),
+                    } else {
+                      // Go to Brand Login
+                      Get.bottomSheet(
+                        const BrandLoginBottomSheet(), // Replace with your Brand Login Bottom Sheet
+                        isScrollControlled: true,
+                        isDismissible: false,
+                        enableDrag: false,
+                      );
+                    }
+                  },
+                  buttonText: "Next",
+                )
+
 
 
               ],
@@ -658,6 +674,7 @@ class ResetPasswordBottomSheet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final roleController = Get.find<SelectRoleController>();
     RxBool showPassword = false.obs;
     return  SingleChildScrollView(
       child: SafeArea(
@@ -713,7 +730,31 @@ class ResetPasswordBottomSheet extends StatelessWidget {
                     title: "Password Changed",
                     desc: "Congratulations! Your account has been protected",
                     buttonText: "Go to Home",
-                    onTap: (){},
+                    onTap: (){
+                      if(roleController.selectedRole.value == "fan")
+                      {
+                        Get.back();
+                        Get.bottomSheet(
+                            const LoginBottomSheet(),
+                            isScrollControlled: true,
+                            isDismissible: false,
+                            enableDrag: false
+                        );
+
+                      }
+                      else
+                      {
+                        Get.back();
+                        Get.bottomSheet(
+                            const BrandLoginBottomSheet(),
+                            isScrollControlled: true,
+                            isDismissible: false,
+                            enableDrag: false
+                        );
+
+                      }
+
+                    },
                   );
                 }, buttonText: "Reset Password"),
 

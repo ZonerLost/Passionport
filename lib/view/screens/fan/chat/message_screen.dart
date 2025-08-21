@@ -72,9 +72,9 @@ class _ChatUiuser_moduletate extends State<ChatUiScreen> {
                 MyText(
                   text: "User_name",
                   size: 13,
-                  weight: FontWeight.w500,
+                  weight: FontWeight.w600,
                 ),
-                SizedBox(height: 5,),
+                SizedBox(height: 2,),
                 MyText(
                   text: "Nike",
                   size: 12,

@@ -12,7 +12,6 @@ import '../../../../config/constants/app_colors.dart';
 import '../../../../generated/assets.dart';
 import '../../../custom/custom_appbar.dart';
 
-
 class LikesScreen extends StatelessWidget {
   const LikesScreen({super.key});
 
@@ -22,10 +21,8 @@ class LikesScreen extends StatelessWidget {
       appBar: CustomAppBar2(
         title: "Likes",
         actions: [
-          CommonImageView(
-            svgPath: Assets.svgMore,
-          ),
-          SizedBox(width: 15,),
+          CommonImageView(svgPath: Assets.svgMore),
+          SizedBox(width: 15),
         ],
       ),
       body: SingleChildScrollView(
@@ -37,38 +34,38 @@ class LikesScreen extends StatelessWidget {
             physics: NeverScrollableScrollPhysics(),
             itemCount: 10,
             itemBuilder: (context, index) {
-             return ListTile(
-               onTap: (){
-                 Get.to(()=>LikesDetailScreen());
-               },
-              contentPadding: EdgeInsets.zero,
-              minVerticalPadding: 0,
+              return ListTile(
+                onTap: () {
+                  Get.to(() => LikesDetailScreen());
+                },
+                contentPadding: EdgeInsets.zero,
+                minVerticalPadding: 0,
                 visualDensity: VisualDensity.compact,
-              leading: CommonImageView(
-                height: 50,
-                width: 50,
-                url: dummyImage1,
-                radius: 25,
-              ),
-              title: MyText(
-                text: "User_name",
-                size: 13,
-                weight: FontWeight.w500,
-              ),
-              subtitle: MyText(
-                text: "Liked your post",
-                size: 12,
-                weight: FontWeight.w400,
-                color: kGreyTxColor,
-              ),
-              trailing: CommonImageView(
-                height: 50,
-                width: 50,
-                imagePath: Assets.imagesFeed,
-                radius: 10,
-              ),
-            );
-          },
+                leading: CommonImageView(
+                  height: 50,
+                  width: 50,
+                  url: dummyImage1,
+                  radius: 25,
+                ),
+                title: MyText(
+                  text: "User_name",
+                  size: 13,
+                  weight: FontWeight.w600,
+                ),
+                subtitle: MyText(
+                  text: "Liked your post",
+                  size: 12,
+                  weight: FontWeight.w400,
+                  color: kGreyTxColor,
+                ),
+                trailing: CommonImageView(
+                  height: 50,
+                  width: 50,
+                  imagePath: Assets.imagesFeed,
+                  radius: 10,
+                ),
+              );
+            },
           ),
         ),
       ),

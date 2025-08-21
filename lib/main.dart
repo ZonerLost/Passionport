@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:get/get_navigation/src/routes/transitions_type.dart';
+import 'package:passion_port/view/screens/brand/brand_bottom_nav_bar/brand_bottom_nav_bar.dart';
+import 'package:passion_port/view/screens/brand/brand_home/brand_home_screen.dart';
+import 'package:passion_port/view/screens/brand/brand_home/stats_widget.dart';
 import 'package:passion_port/view/screens/fan/chat/message_screen.dart';
 import 'package:passion_port/view/screens/fan/fan_bottom_nav_bar/fan_bottom_nav_bar.dart';
 import 'package:passion_port/view/screens/fan/post/create_post_screen.dart';
@@ -30,6 +35,7 @@ import 'package:passion_port/view/screens/fan/userProfile/user_profile_screen.da
 import 'package:passion_port/view/splash_service/splash_screen.dart';
 
 import 'config/constants/app_fonts.dart';
+import 'controller/select_role_controller/select_role_controller.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -43,7 +49,7 @@ void main() async {
       systemNavigationBarIconBrightness: Brightness.light, // Icons color
     ),
   );
-
+  Get.put(SelectRoleController());
   runApp(MyApp());
 }
 
@@ -65,7 +71,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: AppBarTheme(backgroundColor: Colors.white),
       ),
-      home: SplashScreen(),
+      home: BrandBottomNavBar(),
       defaultTransition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 500),
     );
