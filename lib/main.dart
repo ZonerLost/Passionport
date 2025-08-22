@@ -7,6 +7,8 @@ import 'package:get/get_navigation/src/routes/transitions_type.dart';
 import 'package:passion_port/view/screens/brand/brand_bottom_nav_bar/brand_bottom_nav_bar.dart';
 import 'package:passion_port/view/screens/brand/brand_home/brand_home_screen.dart';
 import 'package:passion_port/view/screens/brand/brand_home/stats_widget.dart';
+import 'package:passion_port/view/screens/brand/brand_post/brand_create_post_screen.dart';
+import 'package:passion_port/view/screens/brand/brand_shop/brand_shop_screen.dart';
 import 'package:passion_port/view/screens/fan/chat/message_screen.dart';
 import 'package:passion_port/view/screens/fan/fan_bottom_nav_bar/fan_bottom_nav_bar.dart';
 import 'package:passion_port/view/screens/fan/post/create_post_screen.dart';
@@ -71,7 +73,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.white,
         appBarTheme: AppBarTheme(backgroundColor: Colors.white),
       ),
-      home: BrandBottomNavBar(),
+      home: SplashScreen(),
       defaultTransition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 500),
     );

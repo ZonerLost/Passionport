@@ -14,7 +14,9 @@ import '../../fan/profile/profile_screen.dart';
 import '../../fan/search/search_screen.dart';
 import '../../fan/shop/shop_screen.dart';
 import '../brand_home/brand_home_screen.dart';
+import '../brand_post/brand_create_post_screen.dart';
 import '../brand_profile/brand_profile_screen.dart';
+import '../brand_shop/brand_shop_screen.dart';
 
 class BrandBottomNavBar extends StatefulWidget {
   const BrandBottomNavBar({super.key});
@@ -47,8 +49,8 @@ class _BrandBottomNavBarState extends State<BrandBottomNavBar> {
   final List<Widget> screens = [
     BrandHomeScreen(),
     SearchScreen(),
-    CreatePostScreen(),
-    ShopScreen(),
+    BrandCreatePostScreen(),
+    BrandShopScreen(),
     BrandProfileScreen(),
   ];
 

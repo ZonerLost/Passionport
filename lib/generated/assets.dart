@@ -9,6 +9,7 @@ class Assets {
   static const String imagesC2 = 'assets/images/c2.png';
   static const String imagesCart = 'assets/images/Cart.png';
   static const String imagesDashboard = 'assets/images/dashboard.png';
+  static const String imagesDd1 = 'assets/images/dd1.png';
   static const String imagesFans = 'assets/images/fans.png';
   static const String imagesFeed = 'assets/images/feed.png';
   static const String imagesFp = 'assets/images/fp.png';
@@ -34,15 +35,18 @@ class Assets {
   static const String imagesProfile = 'assets/images/profile.png';
   static const String imagesProfile2 = 'assets/images/profile2.png';
   static const String imagesPromotion = 'assets/images/promotion.png';
+  static const String imagesReward = 'assets/images/reward.png';
   static const String imagesSearch = 'assets/images/Search.png';
   static const String imagesSendMessage = 'assets/images/sendMessage.png';
   static const String imagesShop = 'assets/images/Shop.png';
   static const String imagesShop1 = 'assets/images/shop1.png';
   static const String imagesTags = 'assets/images/tags.png';
+  static const String svgAddCircle = 'assets/svg/add-circle.svg';
   static const String svgApple = 'assets/svg/apple.svg';
   static const String svgArrowDown = 'assets/svg/arrow-down.svg';
   static const String svgArrowRight = 'assets/svg/arrow-right.svg';
   static const String svgArrowRightblack = 'assets/svg/arrow-rightblack.svg';
+  static const String svgBag2 = 'assets/svg/bag-2.svg';
   static const String svgCall = 'assets/svg/call.svg';
   static const String svgClose = 'assets/svg/close.svg';
   static const String svgComment = 'assets/svg/comment.svg';
@@ -64,6 +68,7 @@ class Assets {
   static const String svgMore = 'assets/svg/more.svg';
   static const String svgP1 = 'assets/svg/p1.svg';
   static const String svgPayPal = 'assets/svg/PayPal.svg';
+  static const String svgPresentionChart = 'assets/svg/presention-chart.svg';
   static const String svgProfileDelete = 'assets/svg/profile-delete.svg';
   static const String svgResetPassword = 'assets/svg/resetPassword.svg';
   static const String svgSearchNormal = 'assets/svg/search-normal.svg';

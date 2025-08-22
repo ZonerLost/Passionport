@@ -15,6 +15,7 @@ import '../../../custom/my_text_widget.dart';
 import '../../../custom/my_textfeild.dart';
 import '../../fan/auth/auth_dialog.dart';
 import '../../fan/auth/fan_auth_bottom_sheets.dart';
+import '../brand_bottom_nav_bar/brand_bottom_nav_bar.dart';
 
 
 
@@ -99,7 +100,7 @@ class BrandLoginBottomSheet extends StatelessWidget {
                 ),
                 SizedBox(height: 25,),
                 MyButton(onTap: (){
-                 // Get.to(()=>FanBottomNavBar());
+                 Get.to(()=>BrandBottomNavBar());
                 }, buttonText: "Login"),
                 SizedBox(height: 40,),
                 Align(
