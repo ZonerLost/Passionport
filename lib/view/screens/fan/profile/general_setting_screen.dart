@@ -92,7 +92,7 @@ class SettingsRow extends StatelessWidget {
           MyText(
             text: title,
             size: 15,
-            weight: FontWeight.w500,
+            weight: FontWeight.w600,
           ),
           const Spacer(),
           if (subtitle != null && subtitle!.isNotEmpty) ...[   // ✅ optional text

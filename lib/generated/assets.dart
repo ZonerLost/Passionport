@@ -10,6 +10,7 @@ class Assets {
   static const String imagesCart = 'assets/images/Cart.png';
   static const String imagesDashboard = 'assets/images/dashboard.png';
   static const String imagesDd1 = 'assets/images/dd1.png';
+  static const String imagesDelete = 'assets/images/Delete.png';
   static const String imagesFans = 'assets/images/fans.png';
   static const String imagesFeed = 'assets/images/feed.png';
   static const String imagesFp = 'assets/images/fp.png';
@@ -42,6 +43,7 @@ class Assets {
   static const String imagesShop1 = 'assets/images/shop1.png';
   static const String imagesTags = 'assets/images/tags.png';
   static const String svgAddCircle = 'assets/svg/add-circle.svg';
+  static const String svgAddCircleGrey = 'assets/svg/add-circle-grey.svg';
   static const String svgApple = 'assets/svg/apple.svg';
   static const String svgArrowDown = 'assets/svg/arrow-down.svg';
   static const String svgArrowRight = 'assets/svg/arrow-right.svg';

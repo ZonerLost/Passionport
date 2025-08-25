@@ -9,6 +9,7 @@ import 'package:rxdart/rxdart.dart';
 
 import '../../../../config/constants/app_colors.dart';
 import '../../../../generated/assets.dart';
+import '../likes/likes_detail_screen.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -128,6 +129,12 @@ class _SearchScreenState extends State<SearchScreen> {
     _showSuggestionsSubject.add(false);
     // Handle the selected result
     print('Selected: ${result.name}');
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => LikesDetailScreen(),
+      ),
+    );
   }
 
   @override

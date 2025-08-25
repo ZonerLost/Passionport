@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:passion_port/view/screens/brand/brand_profile/brand_setting_screen.dart';
 
 import '../../../../config/constants/app_colors.dart';
 import '../../../../config/constants/app_fonts.dart';
@@ -8,6 +11,10 @@ import '../../../custom/common_image_view_widget.dart';
 import '../../../custom/custom_appbar.dart';
 import '../../../custom/my_button.dart';
 import '../../../custom/my_text_widget.dart';
+import '../../fan/likes/likes_detail_screen.dart';
+import '../../fan/shop/brand_post_and_campagin_view/campagin_view_screen.dart';
+import 'brand_campaign_details_screen/brand_campaign_view_screen.dart';
+import 'brand_edit_profile_screen.dart';
 
 
 
@@ -45,7 +52,11 @@ class BrandProfileScreen extends StatelessWidget {
         appBar: CustomAppBar(
 
           actions: [
-            CommonImageView(svgPath: Assets.svgMore),
+            GestureDetector(
+              onTap: (){
+                Get.to(()=>BrandSettingScreen());
+              },
+                child: CommonImageView(svgPath: Assets.svgMore)),
             SizedBox(width: 15),
           ],
         ),
@@ -123,7 +134,9 @@ class BrandProfileScreen extends StatelessWidget {
                                 child: MyBorderButton(
                                   textColor: kBlack2Color,
                                   buttonText: "Edit Profile",
-                                  onTap: () {},
+                                  onTap: () {
+                                    Get.to(()=>BrandEditProfileScreen());
+                                  },
                                 ),
                               ),
                             ],
@@ -264,6 +277,9 @@ class BrandProfileScreen extends StatelessWidget {
                     dividerColor: kWhiteLightColor,
                     indicatorColor: kPrimaryColor,
                     indicatorSize: TabBarIndicatorSize.tab,
+                    labelStyle: TextStyle(
+                      fontWeight: FontWeight.w600
+                    ),
                     tabs: [
                       Tab(text: "Posts"),
                       Tab(text: "Campaigns"),
@@ -276,30 +292,43 @@ class BrandProfileScreen extends StatelessWidget {
             ];
           },
           body: TabBarView(
-            children: [_buildGrid(), _buildGrid(), _buildGrid()],
+            children: [
+              _buildGrid((selectedImage) {
+                Get.to(() => LikesDetailScreen());
+              }),
+              _buildGrid((selectedImage) {
+                Get.to(() => BrandCampaignViewScreen());
+              }),
+              _buildGrid((selectedImage) {}),
+            ],
           ),
         ),
       ),
     );
   }
 
-  Widget _buildGrid() {
-    return Container(
-      color: Colors.white,
-      child: GridView.builder(
-        padding: EdgeInsets.all(1),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          crossAxisSpacing: 1,
-          mainAxisSpacing: 1,
-        ),
-        itemCount: images.length,
-        itemBuilder: (context, index) {
-          return CommonImageView(imagePath: images[index]);
-        },
-      ),
-    );
-  }
+   Widget _buildGrid(void Function(String) onImageTap) {
+     return Container(
+       color: Colors.white,
+       child: GridView.builder(
+         padding: EdgeInsets.all(1),
+         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+           crossAxisCount: 3,
+           crossAxisSpacing: 1,
+           mainAxisSpacing: 1,
+         ),
+         itemCount: images.length,
+         itemBuilder: (context, index) {
+           return InkWell(
+             onTap: () {
+               onImageTap(images[index]); // Pass the tapped image path
+             },
+             child: CommonImageView(imagePath: images[index]),
+           );
+         },
+       ),
+     );
+   }
 }
 
 

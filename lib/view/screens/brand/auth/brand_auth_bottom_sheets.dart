@@ -81,19 +81,19 @@ class BrandLoginBottomSheet extends StatelessWidget {
                 Align(
                   alignment: Alignment.topRight,
                   child: GestureDetector(
-                    /*onTap: (){
+                    onTap: (){
                       Get.back();
                       Get.bottomSheet(
-                        const VerifyAccountBottomSheet(),
-                        isScrollControlled: true,
-                        isDismissible: false,
-                        enableDrag: false,
+                          const BrandVerifyAccountBottomSheet(),
+                          isScrollControlled: true,
+                          isDismissible: false,
+                          enableDrag: false
                       );
-                    },*/
+                    },
                     child: MyText(
                       text: "Forgot Password",
                       size: 12,
-                      weight: FontWeight.w500,
+                      weight: FontWeight.w600,
                       color: kPrimaryColor,
                     ),
                   ),
@@ -142,7 +142,7 @@ class BrandLoginBottomSheet extends StatelessWidget {
                               color: kPrimaryColor,
                               fontSize: 12,
                               fontFamily: AppFonts.poppins,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ],
@@ -297,7 +297,7 @@ class BrandCreateAccountBottomSheet extends StatelessWidget {
                               color: kPrimaryColor,
                               fontSize: 12,
                               fontFamily: AppFonts.poppins,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ],
@@ -393,21 +393,26 @@ class BrandAdditionalDetails extends StatelessWidget {
                 ),
                 SizedBox(height: 20,),
                 MyButton(onTap: (){
-                  Get.back();
-                  Get.bottomSheet(
-                      const BrandVerifyAccountBottomSheet(),
-                      isScrollControlled: true,
-                      isDismissible: false,
-                      enableDrag: false
-                  );
+
                 }, buttonText: "Continue"),
                 SizedBox(height: 20,),
                 Align(
                   alignment: Alignment.center,
-                  child: MyText(
-                      text: "Skip for now",
-                    size: 17,
-                    weight: FontWeight.w500,
+                  child: GestureDetector(
+                    onTap: (){
+                      Get.back();
+                      Get.bottomSheet(
+                          const BrandLoginBottomSheet(),
+                          isScrollControlled: true,
+                          isDismissible: false,
+                          enableDrag: false
+                      );
+                    },
+                    child: MyText(
+                        text: "Skip for now",
+                      size: 17,
+                      weight: FontWeight.w500,
+                    ),
                   ),
                 ),
                 SizedBox(height: 20,),
@@ -444,8 +449,32 @@ class BrandVerifyAccountBottomSheet extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                CommonImageView(
-                  svgPath: Assets.svgLogo2,
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    GestureDetector(
+                      onTap: (){
+                        Get.back();
+                        Get.bottomSheet(
+                            const BrandLoginBottomSheet(
+
+                            ),
+                            isScrollControlled: true,
+                            isDismissible: false,
+                            enableDrag: false
+                        );
+                      },
+                      child: CommonImageView(
+                        imagePath: Assets.imagesBackButton,
+                        height: 32,
+                      ),
+                    ),
+                    SizedBox(width: 12,),
+                    CommonImageView(
+                      svgPath: Assets.svgLogo2,
+                    ),
+                  ],
                 ),
                 SizedBox(height: 20,),
                 MyText(

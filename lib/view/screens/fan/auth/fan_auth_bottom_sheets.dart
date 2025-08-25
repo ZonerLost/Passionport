@@ -180,7 +180,7 @@ class LoginBottomSheet extends StatelessWidget {
                     child: MyText(
                       text: "Forgot Password",
                       size: 12,
-                      weight: FontWeight.w500,
+                      weight: FontWeight.w600,
                       color: kPrimaryColor,
                     ),
                   ),
@@ -309,7 +309,7 @@ class LoginBottomSheet extends StatelessWidget {
                               color: kPrimaryColor,
                               fontSize: 12,
                               fontFamily: AppFonts.poppins,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ],
@@ -453,7 +453,7 @@ class CreateAccountBottomSheet extends StatelessWidget {
                               color: kPrimaryColor,
                               fontSize: 12,
                               fontFamily: AppFonts.poppins,
-                              fontWeight: FontWeight.w500,
+                              fontWeight: FontWeight.w600,
                             ),
                           ),
                         ],
@@ -492,8 +492,32 @@ class VerifyAccountBottomSheet extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                CommonImageView(
-                  svgPath: Assets.svgLogo2,
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    GestureDetector(
+                      onTap: (){
+                        Get.back();
+                        Get.bottomSheet(
+                            const LoginBottomSheet(
+
+                            ),
+                            isScrollControlled: true,
+                            isDismissible: false,
+                            enableDrag: false
+                        );
+                      },
+                      child: CommonImageView(
+                        imagePath: Assets.imagesBackButton,
+                        height: 32,
+                      ),
+                    ),
+                    SizedBox(width: 12,),
+                    CommonImageView(
+                      svgPath: Assets.svgLogo2,
+                    ),
+                  ],
                 ),
                 SizedBox(height: 20,),
                 MyText(
@@ -562,8 +586,30 @@ class EnterCodeBottomSheet extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                CommonImageView(
-                  svgPath: Assets.svgLogo2,
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    GestureDetector(
+                      onTap: (){
+                        Get.back();
+                        Get.bottomSheet(
+                            const VerifyAccountBottomSheet(),
+                            isScrollControlled: true,
+                            isDismissible: false,
+                            enableDrag: false
+                        );
+                      },
+                      child: CommonImageView(
+                        imagePath: Assets.imagesBackButton,
+                        height: 32,
+                      ),
+                    ),
+                    SizedBox(width: 12,),
+                    CommonImageView(
+                      svgPath: Assets.svgLogo2,
+                    ),
+                  ],
                 ),
                 SizedBox(height: 20,),
                 MyText(
@@ -691,8 +737,30 @@ class ResetPasswordBottomSheet extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                CommonImageView(
-                  svgPath: Assets.svgLogo2,
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    GestureDetector(
+                      onTap: (){
+                        Get.back();
+                        Get.bottomSheet(
+                            const EnterCodeBottomSheet(),
+                            isScrollControlled: true,
+                            isDismissible: false,
+                            enableDrag: false
+                        );
+                      },
+                      child: CommonImageView(
+                        imagePath: Assets.imagesBackButton,
+                        height: 32,
+                      ),
+                    ),
+                    SizedBox(width: 12,),
+                    CommonImageView(
+                      svgPath: Assets.svgLogo2,
+                    ),
+                  ],
                 ),
                 SizedBox(height: 20,),
                 MyText(
@@ -734,6 +802,7 @@ class ResetPasswordBottomSheet extends StatelessWidget {
                       if(roleController.selectedRole.value == "fan")
                       {
                         Get.back();
+                        Get.back();
                         Get.bottomSheet(
                             const LoginBottomSheet(),
                             isScrollControlled: true,
@@ -744,6 +813,7 @@ class ResetPasswordBottomSheet extends StatelessWidget {
                       }
                       else
                       {
+                        Get.back();
                         Get.back();
                         Get.bottomSheet(
                             const BrandLoginBottomSheet(),

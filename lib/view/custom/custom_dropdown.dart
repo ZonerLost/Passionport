@@ -207,7 +207,7 @@ class CustomDropDown extends StatelessWidget {
                 child: MyText(
                   paddingBottom: 8,
                   text: labelText!.tr,  
-                  size: 16,
+                  size: 12,
                   fontFamily: AppFonts.poppins,
                   textAlign: TextAlign.start,
                   weight: FontWeight.w600,

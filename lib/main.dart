@@ -8,7 +8,13 @@ import 'package:passion_port/view/screens/brand/brand_bottom_nav_bar/brand_botto
 import 'package:passion_port/view/screens/brand/brand_home/brand_home_screen.dart';
 import 'package:passion_port/view/screens/brand/brand_home/stats_widget.dart';
 import 'package:passion_port/view/screens/brand/brand_post/brand_create_post_screen.dart';
+import 'package:passion_port/view/screens/brand/brand_profile/brand_campaign_details_screen/brand_campaign_details_screen.dart';
+import 'package:passion_port/view/screens/brand/brand_profile/brand_edit_profile_screen.dart';
+import 'package:passion_port/view/screens/brand/brand_profile/brand_profile_screen.dart';
+import 'package:passion_port/view/screens/brand/brand_profile/brand_setting_screen.dart';
+import 'package:passion_port/view/screens/brand/brand_shop/brand_add_product_screen.dart';
 import 'package:passion_port/view/screens/brand/brand_shop/brand_shop_screen.dart';
+import 'package:passion_port/view/screens/brand/brand_shop/brand_show_product_screen.dart';
 import 'package:passion_port/view/screens/fan/chat/message_screen.dart';
 import 'package:passion_port/view/screens/fan/fan_bottom_nav_bar/fan_bottom_nav_bar.dart';
 import 'package:passion_port/view/screens/fan/post/create_post_screen.dart';
@@ -50,6 +56,10 @@ void main() async {
       systemNavigationBarColor: Colors.black, // Bottom nav bar color
       systemNavigationBarIconBrightness: Brightness.light, // Icons color
     ),
+  );
+  SystemChrome.setEnabledSystemUIMode(
+    SystemUiMode.manual,
+    overlays: [SystemUiOverlay.top]
   );
   Get.put(SelectRoleController());
   runApp(MyApp());

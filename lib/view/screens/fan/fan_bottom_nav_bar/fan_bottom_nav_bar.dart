@@ -93,7 +93,7 @@ class _FanBottomNavBarState extends State<FanBottomNavBar> {
                           index == 4
                               ? null
                               : (isActive ? kPrimaryColor : kGreyTxColor),
-                      width: 32,
+                      width: 28,
                     ),
                     const SizedBox(height: 4),
                     MyText(

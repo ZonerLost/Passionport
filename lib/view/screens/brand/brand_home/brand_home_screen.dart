@@ -232,13 +232,13 @@ class BrandHomeScreen extends StatelessWidget {
                         MyText(
                           text: "Campaign Promoters",
                           size: 14,
-                          weight: FontWeight.w500,
+                          weight: FontWeight.w600,
                           color: kQuaternaryColor,
                         ),
                         MyText(
                           text: "show all",
                           size: 14,
-                          weight: FontWeight.w500,
+                          weight: FontWeight.w600,
                           color: kQuaternaryColor,
                           fontFamily: AppFonts.poppins,
                         ),

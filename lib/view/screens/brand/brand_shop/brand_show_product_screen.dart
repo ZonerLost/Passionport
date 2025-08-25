@@ -3,25 +3,26 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
-import 'package:passion_port/config/constants/app_sizes.dart';
-import 'package:passion_port/view/custom/my_button.dart';
-import 'package:passion_port/view/screens/fan/shop/shop_cart_screen.dart';
-import 'package:passion_port/view/screens/fan/shop/shop_product_detail_screen.dart';
 
 import '../../../../config/constants/app_colors.dart';
+import '../../../../config/constants/app_sizes.dart';
 import '../../../../generated/assets.dart';
-import '../../../../main.dart';
 import '../../../custom/common_image_view_widget.dart';
 import '../../../custom/custom_appbar.dart';
+import '../../../custom/my_button.dart';
 import '../../../custom/my_text_widget.dart';
+import '../../fan/shop/shop_product_screen.dart';
+import 'brand_add_product_screen.dart';
 
 
 
-class ShopProductScreen extends StatelessWidget {
-   ShopProductScreen({super.key});
+class BrandShowProductScreen extends StatelessWidget {
+   BrandShowProductScreen({super.key});
+
   final RxInt selectedIndex = 0.obs;
 
   final List<String> categories = [
+    "All",
     "Shoes",
     "Bags",
     "Watches",
@@ -38,29 +39,19 @@ class ShopProductScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar2(
+        title: "Products",
         actions: [
 
-          CommonImageView(
-            svgPath: Assets.svgMore,
+          GestureDetector(
+            onTap: (){
+              Get.to(()=>BrandAddProductScreen());
+            },
+            child: CommonImageView(
+              svgPath: Assets.svgAddCircle,
+            ),
           ),
           SizedBox(width: 15,),
         ],
-        child: Row(
-          children: [
-            CommonImageView(
-              height: 30,
-              width: 30,
-              imagePath: Assets.imagesNike,
-              radius: 25,
-            ),
-            SizedBox(width: 10,),
-            MyText(
-              text: "Nike_official",
-              size: 13,
-              weight: FontWeight.w500,
-            ),
-          ],
-        ),
       ),
       body: SingleChildScrollView(
         physics: BouncingScrollPhysics(),
@@ -81,7 +72,7 @@ class ShopProductScreen extends StatelessWidget {
                       return GestureDetector(
                         onTap: () => selectedIndex.value = index,
                         child: Container(
-                          margin: const EdgeInsets.symmetric(horizontal: 6),
+                          margin: const EdgeInsets.only(right: 6),
                           padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 0),
                           decoration: ShapeDecoration(
                             color: isSelected ? kPrimaryColor : kPrimaryLightColor,
@@ -152,7 +143,7 @@ class ShopProductScreen extends StatelessWidget {
                                   MyText(
                                     text: "Track Suit",
                                     size: 15,
-                                    weight: FontWeight.w500,
+                                    weight: FontWeight.w600,
                                   ),
                                   MyText(
                                     text: "\$100.00",
@@ -172,30 +163,22 @@ class ShopProductScreen extends StatelessWidget {
                               const SizedBox(height: 10),
                               GenderSelector(),
                               const SizedBox(height: 10),
-                              Row(
-                                children: [
-                                  Expanded(
-                                    child: SizedBox(
-                                      height: 35,
-                                      child: MyButton(
-                                        onTap: () {
-                                          Get.to(()=>ShopProductDetailScreen());
-                                        },
-                                        buttonText: "Buy Now",
-                                      ),
-                                    ),
+                              Container(
+                                width: double.infinity,
+                                padding: const EdgeInsets.symmetric(horizontal: 13, vertical: 5),
+                                decoration: ShapeDecoration(
+                                  color: kPrimaryColor,
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
                                   ),
-                                  const SizedBox(width: 5),
-                                  GestureDetector(
-                                    onTap:(){
-                                      Get.to(()=>ShopCartScreen());
-                                    },
-                                    child: CommonImageView(
-                                      imagePath: Assets.imagesC2,
-                                      height: 32,
-                                    ),
-                                  )
-                                ],
+                                ),
+                                child: Center(
+                                  child: CommonImageView(
+                                    imagePath: Assets.imagesDelete,
+                                    height: 24,
+                                    width: 24,
+                                  ),
+                                ),
                               )
                             ],
                           ),
@@ -210,51 +193,6 @@ class ShopProductScreen extends StatelessWidget {
             ],
           ),
         ),
-      ),
-    );
-  }
-}
-
-
-
-
-
-class GenderSelector extends StatelessWidget {
-  final RxString selectedValue = "U".obs; // default selected value
-
-  GenderSelector({super.key});
-
-  final List<String> options = ["U", "M", "F"];
-
-  @override
-  Widget build(BuildContext context) {
-    return Obx(
-          () => Row(
-        mainAxisAlignment: MainAxisAlignment.start,
-        children: options.map((value) {
-          final bool isSelected = selectedValue.value == value;
-          return GestureDetector(
-            onTap: () => selectedValue.value = value,
-            child: Container(
-              margin: const EdgeInsets.only(right: 8),
-              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-              decoration: ShapeDecoration(
-                color: isSelected ? kPrimaryColor : kPrimaryLightColor,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30),
-                ),
-              ),
-              child: Text(
-                value,
-                style: TextStyle(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
-                  color: isSelected ? kQuaternaryColor : kPrimaryColor,
-                ),
-              ),
-            ),
-          );
-        }).toList(),
       ),
     );
   }

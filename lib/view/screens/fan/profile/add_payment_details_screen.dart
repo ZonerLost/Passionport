@@ -52,8 +52,7 @@ class AddPaymentDetailsScreen extends StatelessWidget {
                   selectedOccupation.value = value;   // ✅ update state
                 }
               },
-            ),
-            ),
+            ),),
             MyTextField(
               label: "Name of holder",
               hint: "Jhon Doe",

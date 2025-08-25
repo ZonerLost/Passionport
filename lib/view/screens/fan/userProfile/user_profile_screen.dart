@@ -77,7 +77,7 @@ class UserProfileScreen extends StatelessWidget {
                       MyText(
                           text: "Nikia J. Shelby",
                           size: 17,
-                          weight: FontWeight.w500),
+                          weight: FontWeight.w600),
                       const SizedBox(height: 5),
                       MyText(
                         text:
@@ -132,6 +132,9 @@ class UserProfileScreen extends StatelessWidget {
                     dividerColor: kWhiteLightColor,
                     indicatorColor:kPrimaryColor,
                     indicatorSize: TabBarIndicatorSize.tab,
+                    labelStyle: TextStyle(
+                      fontWeight: FontWeight.w600
+                    ),
                     tabs: [
                       Tab(text: "Posts"),
                       Tab(text: "Tags"),
@@ -157,9 +160,9 @@ class UserProfileScreen extends StatelessWidget {
   Widget _buildCounter(String count, String label) {
     return Column(
       children: [
-        MyText(text: count, size: 15, weight: FontWeight.w400, color: kBlack2Color),
+        MyText(text: count, size: 15, weight: FontWeight.w600, color: kBlack2Color),
         const SizedBox(height: 5),
-        MyText(text: label, size: 13, weight: FontWeight.w500, color: kBlack2Color),
+        MyText(text: label, size: 13, weight: FontWeight.w600, color: kBlack2Color),
       ],
     );
   }

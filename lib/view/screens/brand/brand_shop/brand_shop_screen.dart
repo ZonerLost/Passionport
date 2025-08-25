@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:passion_port/config/constants/app_sizes.dart';
 import 'package:passion_port/view/custom/common_image_view_widget.dart';
 import 'package:passion_port/view/custom/custom_appbar.dart';
 import 'package:passion_port/view/custom/my_text_widget.dart';
+import 'package:passion_port/view/screens/brand/brand_profile/brand_campaign_details_screen/brand_campaign_details_screen.dart';
 import 'package:passion_port/view/screens/brand/brand_shop/project_graph.dart';
 
 import '../../../../config/constants/app_colors.dart';
 import '../../../../generated/assets.dart';
 import '../../fan/home/story_widget.dart';
+import 'brand_add_product_screen.dart';
+import 'brand_show_product_screen.dart';
 
 
 
@@ -28,12 +33,22 @@ class BrandShopScreen extends StatelessWidget {
     return Scaffold(
       appBar: CustomAppBar(
         actions: [
-          CommonImageView(
-            svgPath: Assets.svgPresentionChart,
+          GestureDetector(
+            onTap: (){
+              Get.to(()=>BrandCampaignDetailsScreen());
+            },
+            child: CommonImageView(
+              svgPath: Assets.svgPresentionChart,
+            ),
           ),
           SizedBox(width: 15,),
-          CommonImageView(
-            svgPath: Assets.svgBag2,
+          GestureDetector(
+            onTap: (){
+              Get.to(()=>BrandShowProductScreen());
+            },
+            child: CommonImageView(
+              svgPath: Assets.svgBag2,
+            ),
           ),
           SizedBox(width: 15,)
         ],
