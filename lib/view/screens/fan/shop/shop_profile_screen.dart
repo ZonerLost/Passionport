@@ -261,6 +261,9 @@ class ShopProfileScreen extends StatelessWidget {
                     dividerColor: kWhiteLightColor,
                     indicatorColor: kPrimaryColor,
                     indicatorSize: TabBarIndicatorSize.tab,
+                    labelStyle: TextStyle(
+                        fontWeight: FontWeight.w500
+                    ),
                     tabs: [
                       Tab(text: "Posts"),
                       Tab(text: "Campaigns"),

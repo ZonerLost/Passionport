@@ -41,7 +41,7 @@ class ProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: CustomAppBar(
           actions: [
@@ -116,8 +116,10 @@ class ProfileScreen extends StatelessWidget {
                     labelStyle: TextStyle(
                         fontWeight: FontWeight.w500
                     ),
+
                     tabs: [
                       Tab(text: "Posts"),
+                      Tab(text: "Campaigns"),
                       Tab(text: "Tags"),
                     ],
                   ),
@@ -129,6 +131,7 @@ class ProfileScreen extends StatelessWidget {
 
           body: TabBarView(
             children: [
+              _buildGrid(),
               _buildGrid(),
               _buildGrid(),
             ],

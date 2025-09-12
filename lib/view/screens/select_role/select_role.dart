@@ -85,7 +85,7 @@ class _SelectRoleState extends State<SelectRole> {
                       groupValue: roleController.selectedRole.value,
                       onChanged: (val) => roleController.selectedRole.value = val,
                       title: "Fan",
-                      subtitle: "Users who can buy from brands and campaigns to support them through social means",
+                      subtitle: "Users who can buy from brands / creators and also support their funding campaigns",
                     )),
                     const SizedBox(height: 15),
                     Obx(() => RadioOption(
@@ -93,7 +93,7 @@ class _SelectRoleState extends State<SelectRole> {
                       groupValue: roleController.selectedRole.value,
                       onChanged: (val) => roleController.selectedRole.value = val,
                       title: "Brand",
-                      subtitle: "Users who can sell through app and engage fans through campaigns",
+                      subtitle: "Users who can sell through app and engage fans through funding campaigns",
                     )),
                     SizedBox(height: 30,),
                     MyButton(

@@ -512,8 +512,6 @@ class BrandVerifyAccountBottomSheet extends StatelessWidget {
                     },
                   );
                 }, buttonText: "Send Code"),
-
-
               ],
             ),
           ),

@@ -17,6 +17,7 @@ import 'package:passion_port/view/screens/brand/brand_shop/brand_shop_screen.dar
 import 'package:passion_port/view/screens/brand/brand_shop/brand_show_product_screen.dart';
 import 'package:passion_port/view/screens/fan/chat/message_screen.dart';
 import 'package:passion_port/view/screens/fan/fan_bottom_nav_bar/fan_bottom_nav_bar.dart';
+import 'package:passion_port/view/screens/fan/home/home_screen.dart';
 import 'package:passion_port/view/screens/fan/post/create_post_screen.dart';
 import 'package:passion_port/view/screens/fan/post/edit_post_add_details_screen.dart';
 import 'package:passion_port/view/screens/fan/post/post_add_details_screen.dart';

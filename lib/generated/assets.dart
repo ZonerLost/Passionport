@@ -5,6 +5,7 @@ class Assets {
   static const String imagesAt = 'assets/images/At.png';
   static const String imagesBackButton = 'assets/images/backButton.png';
   static const String imagesBg = 'assets/images/bg.png';
+  static const String imagesBg1 = 'assets/images/bg1.png';
   static const String imagesC1 = 'assets/images/c1.png';
   static const String imagesC2 = 'assets/images/c2.png';
   static const String imagesCart = 'assets/images/Cart.png';
@@ -39,8 +40,10 @@ class Assets {
   static const String imagesReward = 'assets/images/reward.png';
   static const String imagesSearch = 'assets/images/Search.png';
   static const String imagesSendMessage = 'assets/images/sendMessage.png';
+  static const String imagesShoes = 'assets/images/shoes.png';
   static const String imagesShop = 'assets/images/Shop.png';
   static const String imagesShop1 = 'assets/images/shop1.png';
+  static const String imagesSt = 'assets/images/st.png';
   static const String imagesTags = 'assets/images/tags.png';
   static const String svgAddCircle = 'assets/svg/add-circle.svg';
   static const String svgAddCircleGrey = 'assets/svg/add-circle-grey.svg';

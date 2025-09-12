@@ -193,10 +193,7 @@ class ShopScreen extends StatelessWidget {
                               ),
                             ],
                           ),
-
                           const SizedBox(height: 15),
-
-                          /// Action buttons (like, comment, share)
                           Row(
                             spacing: 15,
                             children: [
@@ -216,10 +213,7 @@ class ShopScreen extends StatelessWidget {
                               CommonImageView(svgPath: Assets.svgShare),
                             ],
                           ),
-
                           const SizedBox(height: 8),
-
-                          // Post description
                           Text.rich(
                             TextSpan(
                               children: [
@@ -245,10 +239,6 @@ class ShopScreen extends StatelessWidget {
                               ],
                             ),
                           ),
-
-                          // const SizedBox(height: 5),
-
-                          // Comment box
                           Row(
                             children: [
                               CommonImageView(

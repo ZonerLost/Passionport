@@ -100,11 +100,11 @@ class CampaignViewScreen extends StatelessWidget {
                         color: kBlack2Color,
                         fontSize: 14,
                         fontFamily: AppFonts.poppins,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     TextSpan(
-                      text: 'Jordans Hype',
+                      text: '50% off on last 100 pairs of AJ 1s. Don’t miss out',
                       style: TextStyle(
                         color: kBlack2Color,
                         fontSize: 13,
@@ -115,14 +115,8 @@ class CampaignViewScreen extends StatelessWidget {
                   ],
                 ),
               ),
-              const SizedBox(height: 8),
-              MyText(
-                text: "Lorem ipsum dolor sit amet consectetur. At cras\nconvallis amet consequat volutpat blandit. Facilisis.",
-                size: 13,
-                weight: FontWeight.w400,
-                lineHeight: 1.2,
-              ),
-              const SizedBox(height: 8),
+
+             /* const SizedBox(height: 8),
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 15),
                 decoration: ShapeDecoration(
@@ -174,7 +168,7 @@ class CampaignViewScreen extends StatelessWidget {
                     )
                   ],
                 ),
-              ),
+              ),*/
               const SizedBox(height: 10),
               ListView.builder(
                 shrinkWrap: true,
@@ -203,7 +197,7 @@ class CampaignViewScreen extends StatelessWidget {
                                   color: kBlack2Color,
                                   fontSize: 14,
                                   fontFamily: AppFonts.poppins,
-                                  fontWeight: FontWeight.w500,
+                                  fontWeight: FontWeight.w600,
                                 ),
                               ),
                               TextSpan(
@@ -249,6 +243,84 @@ class CampaignViewScreen extends StatelessWidget {
                   MyText(text: "❤️  👍  🔥"),
                 ],
               ),
+              Stack(
+                children: [
+                  CommonImageView(imagePath: Assets.imagesShoes,height: 300,width: 300,),
+                  Positioned(
+                    bottom:10,
+                    right:10,
+                    left:10,
+                    child: Container(
+                      padding: const EdgeInsets.all(10),
+                      clipBehavior: Clip.antiAlias,
+                      decoration: ShapeDecoration(
+                        color: Colors.white.withValues(alpha: 0.20),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10),
+                        ),
+                      ),
+                      child: Column(
+                        children: [
+                          Text.rich(
+                            TextSpan(
+                              children: [
+                                TextSpan(
+                                  text: '\$13,675',
+                                  style: TextStyle(
+                                    color: kPrimaryColor,
+                                    fontSize: 12,
+                                    fontFamily: AppFonts.poppins,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ),
+                                TextSpan(
+                                  text: ' / \$100,000 Raised',
+                                  style: TextStyle(
+                                    color:kQuaternaryColor,
+                                    fontSize: 10,
+                                    fontFamily: AppFonts.poppins,
+                                    fontWeight: FontWeight.w400,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 10,),
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(8),
+                            child: SizedBox(
+                              height: 20,
+                              child: LinearProgressIndicator(
+                                borderRadius: BorderRadius.circular(25),
+                                value: 0.6,
+                                backgroundColor: kPrimaryLight3Color,
+                                valueColor: AlwaysStoppedAnimation<Color>(kPrimaryColor),
+                              ),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 12),
+              Container(
+                width: double.infinity,
+                padding: const EdgeInsets.all(10),
+                decoration: ShapeDecoration(
+                  color: const Color(0x33FF7A00),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                ),
+                child: MyText(
+                  text: "Lorem ipsum dolor sit amet consectetur. Dolor amet habitasse tortor nullam ipsum tellus. Est.",
+                  size: 13,
+                  weight: FontWeight.w400,
+                  color: kPrimaryColor,
+                ),
+              )
             ],
           ),
         ),

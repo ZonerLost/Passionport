@@ -96,8 +96,21 @@ class BrandCampaignDetailsScreen extends StatelessWidget {
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        MyCarousel(),
+                        Stack(
+                          children: [
+                            MyCarousel(),
+                            Positioned(
+                              bottom: 10,
+                              right: 10,
+                              child: CommonImageView(
+                                imagePath: Assets.imagesPromotion,
+                                height: 30,
+                              ),
+                            ),
+                          ],
+                        ),
                         const SizedBox(height: 15),
                         Row(
                           spacing: 15,
@@ -190,6 +203,84 @@ class BrandCampaignDetailsScreen extends StatelessWidget {
                             MyText(text: "❤️  👍  🔥"),
                           ],
                         ),
+                        Stack(
+                          children: [
+                            CommonImageView(imagePath: Assets.imagesShoes,height: 300,width: 300,),
+                            Positioned(
+                              bottom:10,
+                              right:10,
+                              left:10,
+                              child: Container(
+                                padding: const EdgeInsets.all(10),
+                                clipBehavior: Clip.antiAlias,
+                                decoration: ShapeDecoration(
+                                  color: Colors.white.withValues(alpha: 0.20),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                ),
+                                child: Column(
+                                  children: [
+                                    Text.rich(
+                                      TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: '\$13,675',
+                                            style: TextStyle(
+                                              color: kPrimaryColor,
+                                              fontSize: 12,
+                                              fontFamily: AppFonts.poppins,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                          ),
+                                          TextSpan(
+                                            text: ' / \$100,000 Raised',
+                                            style: TextStyle(
+                                              color:kQuaternaryColor,
+                                              fontSize: 10,
+                                              fontFamily: AppFonts.poppins,
+                                              fontWeight: FontWeight.w400,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    SizedBox(height: 10,),
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(8),
+                                      child: SizedBox(
+                                        height: 20,
+                                        child: LinearProgressIndicator(
+                                          borderRadius: BorderRadius.circular(25),
+                                          value: 0.6,
+                                          backgroundColor: kPrimaryLight3Color,
+                                          valueColor: AlwaysStoppedAnimation<Color>(kPrimaryColor),
+                                        ),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        const SizedBox(height: 12),
+                        Container(
+                          width: double.infinity,
+                          padding: const EdgeInsets.all(10),
+                          decoration: ShapeDecoration(
+                            color: const Color(0x33FF7A00),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10),
+                            ),
+                          ),
+                          child: MyText(
+                            text: "Lorem ipsum dolor sit amet consectetur. Dolor amet habitasse tortor nullam ipsum tellus. Est.",
+                            size: 13,
+                            weight: FontWeight.w400,
+                            color: kPrimaryColor,
+                          ),
+                        )
                       ],
 
                     ),
