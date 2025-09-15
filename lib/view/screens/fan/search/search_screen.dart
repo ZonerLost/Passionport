@@ -266,7 +266,7 @@ class _SearchScreenState extends State<SearchScreen> {
       children: [
         /// Filter Types
         Container(
-          height: 50,
+          height: 60,
           padding: const EdgeInsets.symmetric(horizontal: 16),
           child: StreamBuilder<String>(
             stream: selectedTypeStream,

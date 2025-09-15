@@ -69,8 +69,8 @@ class BrandCreatePostScreen extends StatelessWidget {
                 ),
                 Positioned(
                   bottom: 15,
-                  left: 70,
-                  right: 70,
+                  left: 60,
+                  right: 60,
 
                   child: Container(
                     padding: const EdgeInsets.all(10),
