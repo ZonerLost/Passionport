@@ -28,7 +28,7 @@ class StaggeredGridExample extends StatelessWidget {
       children: [
         StaggeredGridTile.count(
           crossAxisCellCount: 2, // width in columns
-          mainAxisCellCount: 2, // height in rows
+          mainAxisCellCount: 1, // height in rows
           child: _buildImage(imageUrls[0]),
         ),
         StaggeredGridTile.count(

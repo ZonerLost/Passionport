@@ -10,6 +10,7 @@ import 'package:rxdart/rxdart.dart';
 import '../../../../config/constants/app_colors.dart';
 import '../../../../generated/assets.dart';
 import '../likes/likes_detail_screen.dart';
+import 'compain_search_data.dart';
 
 class SearchScreen extends StatefulWidget {
   const SearchScreen({super.key});
@@ -23,9 +24,12 @@ class _SearchScreenState extends State<SearchScreen> {
   final FocusNode _searchFocusNode = FocusNode();
 
   // RxDart Subjects
-  final BehaviorSubject<bool> _showSuggestionsSubject = BehaviorSubject<bool>.seeded(false);
-  final BehaviorSubject<String> _selectedTypeSubject = BehaviorSubject<String>.seeded('All');
-  final BehaviorSubject<String> _searchQuerySubject = BehaviorSubject<String>.seeded('');
+  final BehaviorSubject<bool> _showSuggestionsSubject =
+      BehaviorSubject<bool>.seeded(false);
+  final BehaviorSubject<String> _selectedTypeSubject =
+      BehaviorSubject<String>.seeded('All');
+  final BehaviorSubject<String> _searchQuerySubject =
+      BehaviorSubject<String>.seeded('');
 
   // Streams
   late Stream<bool> showSuggestionsStream;
@@ -37,19 +41,43 @@ class _SearchScreenState extends State<SearchScreen> {
   final List<String> _searchTypes = ['All', 'Brands', 'Hashtags', 'Tags'];
 
   final List<SearchResult> _allResults = [
-    SearchResult(name: 'nike_official', type: 'Brands', image: Assets.imagesNike),
-    SearchResult(name: 'nike_premium', type: 'Brands', image: Assets.imagesNike),
-    SearchResult(name: 'nike_community', type: 'Brands', image: Assets.imagesNike),
+    SearchResult(
+      name: 'nike_official',
+      type: 'Brands',
+      image: Assets.imagesNike,
+    ),
+    SearchResult(
+      name: 'nike_premium',
+      type: 'Brands',
+      image: Assets.imagesNike,
+    ),
+    SearchResult(
+      name: 'nike_community',
+      type: 'Brands',
+      image: Assets.imagesNike,
+    ),
     SearchResult(name: '#nike', type: 'Hashtags', image: Assets.imagesHashtag),
-    SearchResult(name: '#nikeair', type: 'Hashtags',image: Assets.imagesHashtag),
-    SearchResult(name: '#nikestyle', type: 'Hashtags',image: Assets.imagesHashtag),
+    SearchResult(
+      name: '#nikeair',
+      type: 'Hashtags',
+      image: Assets.imagesHashtag,
+    ),
+    SearchResult(
+      name: '#nikestyle',
+      type: 'Hashtags',
+      image: Assets.imagesHashtag,
+    ),
     SearchResult(name: 'adidas', type: 'Tags', image: Assets.imagesTags),
     SearchResult(name: 'puma', type: 'Tags', image: Assets.imagesTags),
-    SearchResult(name: 'reebok', type: 'Tags',image: Assets.imagesTags),
+    SearchResult(name: 'reebok', type: 'Tags', image: Assets.imagesTags),
     SearchResult(name: 'nike_store', type: 'Brands', image: Assets.imagesFans),
     SearchResult(name: 'nikerunning', type: 'Brands', image: Assets.imagesFans),
     SearchResult(name: 'nikewomen', type: 'Brands', image: Assets.imagesFans),
-    SearchResult(name: 'nikesportswear', type: 'Brands',image: Assets.imagesFans),
+    SearchResult(
+      name: 'nikesportswear',
+      type: 'Brands',
+      image: Assets.imagesFans,
+    ),
   ];
 
   @override
@@ -66,19 +94,20 @@ class _SearchScreenState extends State<SearchScreen> {
   void _initializeStreams() {
     showSuggestionsStream = _showSuggestionsSubject.stream.asBroadcastStream();
     selectedTypeStream = _selectedTypeSubject.stream.asBroadcastStream();
-    searchQueryStream = _searchQuerySubject.stream
-        .debounceTime(const Duration(milliseconds: 300))
-        .asBroadcastStream();
+    searchQueryStream =
+        _searchQuerySubject.stream
+            .debounceTime(const Duration(milliseconds: 300))
+            .asBroadcastStream();
 
-    filteredResultsStream = Rx.combineLatest2<String, String, List<SearchResult>>(
-      searchQueryStream,
-      selectedTypeStream,
+    filteredResultsStream =
+        Rx.combineLatest2<String, String, List<SearchResult>>(
+          searchQueryStream,
+          selectedTypeStream,
           (String query, String selectedType) {
-        return _filterResults(query, selectedType);
-      },
-    ).asBroadcastStream();
+            return _filterResults(query, selectedType);
+          },
+        ).asBroadcastStream();
   }
-
 
   void _setupFocusListener() {
     _searchFocusNode.addListener(() {
@@ -97,8 +126,13 @@ class _SearchScreenState extends State<SearchScreen> {
 
     // Filter by search query
     if (query.isNotEmpty) {
-      results = results.where((result) =>
-          result.name.toLowerCase().contains(query.toLowerCase())).toList();
+      results =
+          results
+              .where(
+                (result) =>
+                    result.name.toLowerCase().contains(query.toLowerCase()),
+              )
+              .toList();
     }
 
     // Filter by selected type
@@ -131,9 +165,7 @@ class _SearchScreenState extends State<SearchScreen> {
     print('Selected: ${result.name}');
     Navigator.push(
       context,
-      MaterialPageRoute(
-        builder: (context) => LikesDetailScreen(),
-      ),
+      MaterialPageRoute(builder: (context) => LikesDetailScreen()),
     );
   }
 
@@ -152,31 +184,61 @@ class _SearchScreenState extends State<SearchScreen> {
                 hint: "Nike",
                 prefix: Padding(
                   padding: const EdgeInsets.all(10),
-                  child: CommonImageView(
-                    svgPath: Assets.svgSearchNormal,
-                  ),
+                  child: CommonImageView(svgPath: Assets.svgSearchNormal),
                 ),
                 marginBottom: 0,
               ),
             ),
-          )
+          ),
         ],
       ),
-      body: SafeArea(
-        child: Column(
-          children: [
-            Expanded(
-              child: StreamBuilder<bool>(
-                stream: showSuggestionsStream,
-                builder: (context, showSuggestionsSnapshot) {
-                  final showSuggestions = showSuggestionsSnapshot.data ?? false;
-                  return showSuggestions
-                      ? _buildSuggestionsView()
-                      : StaggeredGridExample();
-                },
+      body: DefaultTabController(
+        length: 2,
+        child: SafeArea(
+          child: Column(
+            children: [
+              Expanded(
+                child: StreamBuilder<bool>(
+                  stream: showSuggestionsStream,
+                  builder: (context, showSuggestionsSnapshot) {
+                    final showSuggestions =
+                        showSuggestionsSnapshot.data ?? false;
+                    return showSuggestions
+                        ? _buildSuggestionsView()
+                        : Column(
+                           mainAxisSize: MainAxisSize.min,
+                          children: [
+                            TabBar(
+                              labelColor: kPrimaryColor,
+                              unselectedLabelColor: kGreyTxColor,
+                              indicatorColor: kPrimaryColor,
+                              indicatorSize: TabBarIndicatorSize.tab,
+                              padding: EdgeInsets.only(bottom: 10),
+                              labelStyle: TextStyle(
+                                fontWeight: FontWeight.w500,
+                                fontSize: 12,
+                              ),
+                              tabs: [
+                                Tab(text: "Posts"),
+                                Tab(text: "Campaigns"),
+                              ],
+                            ),
+                            Expanded(
+                              child: TabBarView(
+
+                                children: [
+                                  StaggeredGridExample(),
+                                  CompaignSearchData(),
+                                ],
+                              ),
+                            ),
+                          ],
+                        );
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
@@ -191,10 +253,7 @@ class _SearchScreenState extends State<SearchScreen> {
           SizedBox(height: 16),
           Text(
             'Start typing to search',
-            style: TextStyle(
-              fontSize: 18,
-              color: Colors.grey,
-            ),
+            style: TextStyle(fontSize: 18, color: Colors.grey),
           ),
         ],
       ),
@@ -239,6 +298,7 @@ class _SearchScreenState extends State<SearchScreen> {
             },
           ),
         ),
+
         /// Results List with StreamBuilder
         Expanded(
           child: StreamBuilder<List<SearchResult>>(
@@ -252,7 +312,7 @@ class _SearchScreenState extends State<SearchScreen> {
                   // Suggestions Header
                   if (filteredResults.isNotEmpty)
                     Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16, ),
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: MyText(
                         text: "Suggestions",
                         size: 15,
@@ -262,29 +322,32 @@ class _SearchScreenState extends State<SearchScreen> {
 
                   // Results List
                   Expanded(
-                    child: filteredResults.isEmpty
-                        ? Center(
-                      child: StreamBuilder<String>(
-                        stream: searchQueryStream,
-                        builder: (context, querySnapshot) {
-                          final query = querySnapshot.data ?? '';
-                          return Text(
-                            query.isEmpty ? 'Start typing to search' : 'No results found',
-                            style: TextStyle(
-                              fontSize: 16,
-                              color: Colors.grey[600],
+                    child:
+                        filteredResults.isEmpty
+                            ? Center(
+                              child: StreamBuilder<String>(
+                                stream: searchQueryStream,
+                                builder: (context, querySnapshot) {
+                                  final query = querySnapshot.data ?? '';
+                                  return Text(
+                                    query.isEmpty
+                                        ? 'Start typing to search'
+                                        : 'No results found',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: Colors.grey[600],
+                                    ),
+                                  );
+                                },
+                              ),
+                            )
+                            : ListView.builder(
+                              itemCount: filteredResults.length,
+                              itemBuilder: (context, index) {
+                                final result = filteredResults[index];
+                                return _buildResultItem(result);
+                              },
                             ),
-                          );
-                        },
-                      ),
-                    )
-                        : ListView.builder(
-                      itemCount: filteredResults.length,
-                      itemBuilder: (context, index) {
-                        final result = filteredResults[index];
-                        return _buildResultItem(result);
-                      },
-                    ),
                   ),
                 ],
               );
@@ -297,17 +360,15 @@ class _SearchScreenState extends State<SearchScreen> {
 
   Widget _buildResultItem(SearchResult result) {
     return ListTile(
-      leading: CommonImageView(
-        imagePath: result.image,
-        height: 32,
-      ),
+      leading: CommonImageView(imagePath: result.image, height: 32),
       title: Text(
         result.name,
-        style: const TextStyle(
-          fontWeight: FontWeight.w500,
-        ),
+        style: const TextStyle(fontWeight: FontWeight.w500),
       ),
-      trailing:_selectedTypeSubject.value == "All" ?  CommonImageView(svgPath: Assets.svgClose,) : null,
+      trailing:
+          _selectedTypeSubject.value == "All"
+              ? CommonImageView(svgPath: Assets.svgClose)
+              : null,
       onTap: () => _onResultTapped(result),
     );
   }
@@ -318,9 +379,5 @@ class SearchResult {
   final String type;
   final String image;
 
-  SearchResult({
-    required this.name,
-    required this.type,
-    required this.image,
-  });
+  SearchResult({required this.name, required this.type, required this.image});
 }

@@ -52,7 +52,7 @@ class ChatScreen extends StatelessWidget {
                 title: MyText(
                   text: "User_name",
                   size: 13,
-                  weight: FontWeight.w500,
+                  weight: FontWeight.w600,
                 ),
                 subtitle: MyText(
                   text: "Nice shirt buddy",

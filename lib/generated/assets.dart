@@ -2,6 +2,7 @@
 class Assets {
   Assets._();
 
+  static const String images2more = 'assets/images/2more.png';
   static const String imagesAt = 'assets/images/At.png';
   static const String imagesBackButton = 'assets/images/backButton.png';
   static const String imagesBg = 'assets/images/bg.png';
@@ -9,6 +10,8 @@ class Assets {
   static const String imagesC1 = 'assets/images/c1.png';
   static const String imagesC2 = 'assets/images/c2.png';
   static const String imagesCart = 'assets/images/Cart.png';
+  static const String imagesCp1 = 'assets/images/cp1.png';
+  static const String imagesCross = 'assets/images/cross.png';
   static const String imagesDashboard = 'assets/images/dashboard.png';
   static const String imagesDd1 = 'assets/images/dd1.png';
   static const String imagesDelete = 'assets/images/Delete.png';
@@ -38,6 +41,10 @@ class Assets {
   static const String imagesProfile2 = 'assets/images/profile2.png';
   static const String imagesPromotion = 'assets/images/promotion.png';
   static const String imagesReward = 'assets/images/reward.png';
+  static const String imagesS1 = 'assets/images/s1.png';
+  static const String imagesS2 = 'assets/images/s2.png';
+  static const String imagesS3 = 'assets/images/s3.png';
+  static const String imagesS4 = 'assets/images/s4.png';
   static const String imagesSearch = 'assets/images/Search.png';
   static const String imagesSendMessage = 'assets/images/sendMessage.png';
   static const String imagesShoes = 'assets/images/shoes.png';
@@ -49,15 +56,20 @@ class Assets {
   static const String svgAddCircleGrey = 'assets/svg/add-circle-grey.svg';
   static const String svgApple = 'assets/svg/apple.svg';
   static const String svgArrowDown = 'assets/svg/arrow-down.svg';
+  static const String svgArrowDown1 = 'assets/svg/arrow-down1.svg';
   static const String svgArrowRight = 'assets/svg/arrow-right.svg';
   static const String svgArrowRightblack = 'assets/svg/arrow-rightblack.svg';
+  static const String svgArt = 'assets/svg/art.svg';
   static const String svgBag2 = 'assets/svg/bag-2.svg';
   static const String svgCall = 'assets/svg/call.svg';
   static const String svgClose = 'assets/svg/close.svg';
   static const String svgComment = 'assets/svg/comment.svg';
   static const String svgDialogLogo = 'assets/svg/dialogLogo.svg';
+  static const String svgElectronic = 'assets/svg/electronic.svg';
   static const String svgFacebook = 'assets/svg/facebook.svg';
+  static const String svgFassion = 'assets/svg/fassion.svg';
   static const String svgG1 = 'assets/svg/g1.svg';
+  static const String svgGallery = 'assets/svg/gallery.svg';
   static const String svgGalleryEdit = 'assets/svg/gallery-edit.svg';
   static const String svgGoogle = 'assets/svg/google.svg';
   static const String svgGooglePay = 'assets/svg/GooglePay.svg';
@@ -65,6 +77,7 @@ class Assets {
   static const String svgHeart = 'assets/svg/heart.svg';
   static const String svgHeartgrey = 'assets/svg/heartgrey.svg';
   static const String svgHide = 'assets/svg/hide.svg';
+  static const String svgJewelary = 'assets/svg/jewelary.svg';
   static const String svgLikeheart = 'assets/svg/Likeheart.svg';
   static const String svgLogo = 'assets/svg/logo.svg';
   static const String svgLogo2 = 'assets/svg/logo2.svg';
